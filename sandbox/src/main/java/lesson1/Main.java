@@ -10,14 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Point a = new Point(5, 6);
         Point b = new Point(8, 10);
-        Point c = new Point(10,50);
-        Point d = new Point(11,12);
         System.out.println(Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2)));
-        System.out.println(distance(a,b));
-        System.out.println(c.distance(a,b));
-        System.out.println(d.distance(b,c));
-
-
-
+        System.out.println(distance(a, b));
+        System.out.println(a.distance(a,b));
     }
 }
