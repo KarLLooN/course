@@ -8,10 +8,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Point a = new Point(5, 6);
-        Point b = new Point(8, 10);
-        System.out.println(Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2)));
-        System.out.println(distance(a, b));
-        System.out.println(a.distance(a,b));
+        Point p1 = new Point(5, 6);
+        Point p2 = new Point(8, 10);
+        System.out.println(Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)));
+        System.out.println(distance(p1, p2));
+        System.out.println(p1.distance(p2));
     }
 }
