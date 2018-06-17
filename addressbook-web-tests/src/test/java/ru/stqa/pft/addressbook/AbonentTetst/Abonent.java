@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.AbonentTetst;
 
 public class Abonent {
     private final String name;
