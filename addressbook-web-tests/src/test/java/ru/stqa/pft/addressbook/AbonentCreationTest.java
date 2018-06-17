@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
-public class AbonentDataCreationTest {
+public class AbonentCreationTest {
     FirefoxDriver wd;
     
     @BeforeMethod
@@ -32,10 +32,10 @@ public class AbonentDataCreationTest {
     }
 
     @Test
-    public void testAbonentCreation() {
+    public void AbonentCreationTest() {
 
         gotoAddNew();
-        fillNewAbonentForm(new AbonentData("Ivan", "Ivanov", "+78968968989", "ivas@mai.com", "Moscow"));
+        fillNewAbonentForm(new Abonent("Ivan", "Ivanov", "+78968968989", "ivas@mai.com", "Moscow"));
         submitNewAbonent();
         returnHomePage();
     }
@@ -48,7 +48,7 @@ public class AbonentDataCreationTest {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    private void fillNewAbonentForm(AbonentData abonent) {
+    private void fillNewAbonentForm(Abonent abonent) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(abonent.getName());
