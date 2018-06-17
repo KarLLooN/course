@@ -1,13 +1,13 @@
-package ru.stqa.pft.addressbook.model;
+package ru.stqa.pft.addressbook;
 
-public class AbonentData {
+public class Abonent {
     private final String name;
     private final String lastName;
     private final String mobilePhone;
     private final String email;
     private final String address;
 
-    public AbonentData(String ivan, String ivanov, String s, String s1, String moscow) {
+    public Abonent(String ivan, String ivanov, String s, String s1, String moscow) {
         name = ivan;
         lastName = ivanov;
         mobilePhone = s;

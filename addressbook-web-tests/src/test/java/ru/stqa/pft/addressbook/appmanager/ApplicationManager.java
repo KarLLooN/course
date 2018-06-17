@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-    private final AbonentHelper abonentHelper = new AbonentHelper();
+    private final  = new AbonentHelper();
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
