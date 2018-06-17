@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import ru.stqa.pft.addressbook.model.AbonentData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
@@ -75,5 +76,35 @@ public class ApplicationManager {
 
     public void selectGroup() {
         wd.findElement(By.name("selected[]")).click();
+    }
+
+    public void returnHomePage() {
+        wd.findElement(By.linkText("home page")).click();
+    }
+
+    public void submitNewAbonent() {
+        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    }
+
+    public void gotoAddNew() {
+        wd.findElement(By.linkText("add new")).click();
+    }
+
+    public void fillNewAbonentForm(AbonentData abonent) {
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).clear();
+        wd.findElement(By.name("firstname")).sendKeys(abonent.getName());
+        wd.findElement(By.name("lastname")).click();
+        wd.findElement(By.name("lastname")).clear();
+        wd.findElement(By.name("lastname")).sendKeys(abonent.getLastName());
+        wd.findElement(By.name("mobile")).click();
+        wd.findElement(By.name("mobile")).clear();
+        wd.findElement(By.name("mobile")).sendKeys(abonent.getMobilePhone());
+        wd.findElement(By.name("email")).click();
+        wd.findElement(By.name("email")).clear();
+        wd.findElement(By.name("email")).sendKeys(abonent.getEmail());
+        wd.findElement(By.name("address2")).click();
+        wd.findElement(By.name("address2")).clear();
+        wd.findElement(By.name("address2")).sendKeys(abonent.getAddress());
     }
 }
