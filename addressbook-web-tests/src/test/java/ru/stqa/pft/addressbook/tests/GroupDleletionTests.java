@@ -8,9 +8,9 @@ public class GroupDleletionTests extends TestBase {
     @Test
     public void testGroupDleletion() {
         app.gotoGroupPage();
-        app.getGroupHalper().selectGroup();
-        app.getGroupHalper().deleteSelectedGroups();
-        app.getGroupHalper().returnToGroupPage();
+        app.selectGroup();
+        app.deleteSelectedGroups();
+        app.returnToGroupPage();
     }
 
 
