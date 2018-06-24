@@ -21,3 +21,4 @@ sandbox/build/scripts/sandbox
 sandbox/build/tmp/jar/MANIFEST.MF
 .idea/workspace.xml
 addressbook-web-tests/.idea/workspace.xml
+sandbox/.idea/workspace.xml
