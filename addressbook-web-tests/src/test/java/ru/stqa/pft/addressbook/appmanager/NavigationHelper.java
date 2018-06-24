@@ -20,7 +20,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoHome(){
-        click(By.linkText("home page"));
+        click(By.xpath("//div[@id='nav']//a[.='home']"));
     }
 
     public void returnToHomePage(){
