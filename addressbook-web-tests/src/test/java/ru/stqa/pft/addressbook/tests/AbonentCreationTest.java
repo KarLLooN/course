@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.AbonentTetst;
+package ru.stqa.pft.addressbook.tests;
 
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeMethod;
@@ -9,8 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
+import ru.stqa.pft.addressbook.model.Abonent;
 
-public class AbonentCreationTest {
+public class AbonentCreationTest extends TestBase {
     FirefoxDriver wd;
     
     @BeforeMethod
@@ -32,10 +33,10 @@ public class AbonentCreationTest {
     }
 
     @Test
-    public void AbonentCreationTest() {
+    public void testAbonentCreation() {
 
         gotoAddNew();
-        fillNewAbonentForm(new Abonent("Ivan", "Ivanov", "+78968968989", "ivas@mai.com", "Moscow"));
+        fillNewAbonentForm(new Abonent("Ivan121212121", "Ivanov", "+78968968989", "ivas@mai.com", "Moscow"));
         submitNewAbonent();
         returnHomePage();
     }
@@ -74,7 +75,7 @@ public class AbonentCreationTest {
     public void tearDown() {
         wd.quit();
     }
-    
+
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
             wd.switchTo().alert();
