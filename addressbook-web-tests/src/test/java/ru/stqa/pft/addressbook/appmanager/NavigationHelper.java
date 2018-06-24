@@ -20,7 +20,11 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoHome(){
-        click(By.name("home"));
+        click(By.linkText("home page"));
+    }
+
+    public void returnToHomePage(){
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 
     public void closeAlert(){

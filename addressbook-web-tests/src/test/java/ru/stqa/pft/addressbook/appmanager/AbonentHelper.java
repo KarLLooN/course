@@ -47,7 +47,8 @@ public class AbonentHelper extends HelperBase {
         click(By.id("MassCB"));
     }
     public void abonentModification(){
-        click(By.name("modify"));
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+
     }
 
     public void gotoAbonentDetails(){
@@ -55,7 +56,7 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void submitAbonentModification() {
-        click(By.name("update"));
+        click(By.xpath("//div[@id='content']/form[1]"));
     }
 }
 
