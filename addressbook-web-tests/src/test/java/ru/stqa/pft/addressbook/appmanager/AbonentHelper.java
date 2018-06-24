@@ -40,8 +40,10 @@ public class AbonentHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
-    public void abonentDeleted(){
-        click(By.name("delete"));
+    public void abonentDelete(){ click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));}
+
+    public void abonentSelectedAll(){
+        click(By.id("MassCB"));
     }
     public void abonentModification(){
         click(By.name("modify"));

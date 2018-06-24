@@ -8,8 +8,9 @@ public class AbonentDeletedTest extends TestBase{
     public void testAbonentDeleted(){
 
         app.getNavigationHelper().gotoHome();
-        app.getAbonentHelper().abonentSelected();
-        app.getAbonentHelper().abonentDeleted();
+        app.getAbonentHelper().abonentSelectedAll();
+        app.getAbonentHelper().abonentDelete();
         app.getNavigationHelper().closeAlert();
+
     }
 }
