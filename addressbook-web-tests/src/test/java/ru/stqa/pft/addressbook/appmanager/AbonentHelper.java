@@ -1,12 +1,13 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
 public class AbonentHelper extends HelperBase {
 
-    public AbonentHelper(FirefoxDriver wd) {
+    public AbonentHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -37,7 +38,7 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void abonentSelected(){
-        click(By.name("selected[]"));
+        wd.findElement(By.name("selected[]")).click();
     }
 
     public void abonentDelete(){ click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));}
