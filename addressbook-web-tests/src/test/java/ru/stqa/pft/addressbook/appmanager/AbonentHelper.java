@@ -37,7 +37,7 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void abonentSelected(){
-        wd.findElement(By.name("selected[]")).isSelected();
+        click(By.name("selected[]"));
     }
 
     public void abonentDeleted(){
