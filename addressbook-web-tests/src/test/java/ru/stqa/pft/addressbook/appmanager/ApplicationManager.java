@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -35,6 +36,8 @@ public class ApplicationManager {
             wd = new ChromeDriver();
         } else if (browser.equals(BrowserType.IE)){
             wd = new InternetExplorerDriver();
+        } else if (browser.equals(BrowserType.EDGE)){
+            wd = new EdgeDriver();
         }
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(wd);
