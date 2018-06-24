@@ -18,9 +18,10 @@ public class AbonentCreationTest extends TestBase {
     public void testAbonentCreation() {
 
         app.getNavigationHelper().gotoAddNew();
-        app.getAbonentHelper().fillNewAbonentForm(new AbonentData("asas","asasss","1212212","323","dffdf"));
+        app.getAbonentHelper().fillNewAbonentForm(new AbonentData("Karl","asasss","1212212","323","dffdf"));
         app.getAbonentHelper().submitNewAbonent();
         app.getAbonentHelper().returnHomePage();
+
     }
 
 

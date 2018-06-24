@@ -11,11 +11,11 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void returnHomePage() {
-        wd.findElement(By.linkText("home page")).click();
+        click(By.linkText("home page"));
     }
 
     public void submitNewAbonent() {
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public void fillNewAbonentForm(AbonentData abonentData) {
@@ -34,6 +34,25 @@ public class AbonentHelper extends HelperBase {
         wd.findElement(By.name("address2")).click();
         wd.findElement(By.name("address2")).clear();
         wd.findElement(By.name("address2")).sendKeys(abonentData.getAddress());
+    }
+
+    public void abonentSelected(){
+        wd.findElement(By.name("selected[]")).isSelected();
+    }
+
+    public void abonentDeleted(){
+        click(By.name("delete"));
+    }
+    public void abonentModification(){
+        click(By.name("modify"));
+    }
+
+    public void gotoAbonentDetails(){
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
+    }
+
+    public void submitAbonentModification() {
+        click(By.name("update"));
     }
 }
 
