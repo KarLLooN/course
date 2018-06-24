@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ac04897-60c0-47e0-876e-1c3de0366301" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/NavigationHelper.java" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/NavigationHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/AbonentModificationsTests.java" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/AbonentModificationsTests.java" />
-    </list>
+    <list default="true" id="1ac04897-60c0-47e0-876e-1c3de0366301" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
