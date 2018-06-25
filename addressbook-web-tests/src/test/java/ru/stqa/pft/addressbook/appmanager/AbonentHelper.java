@@ -55,5 +55,20 @@ public class AbonentHelper extends HelperBase {
     public void submitAbonentModification() {
         click(By.xpath("//div[@id='content']/form[1]"));
     }
+
+    public boolean isThereAAbonent() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void gotoAddNew() {
+        click(By.linkText("add new"));
+    }
+
+    public void createAbonent(AbonentData abonent, boolean b) {
+        gotoAddNew();
+        fillNewAbonentForm(abonent, true);
+        submitNewAbonent();
+        returnHomePage();
+    }
 }
 
