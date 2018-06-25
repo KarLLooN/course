@@ -1,7 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
 public class AbonentHelper extends HelperBase {
@@ -20,10 +22,14 @@ public class AbonentHelper extends HelperBase {
 
     public void fillNewAbonentForm(AbonentData abonentData) {
         type(By.name("firstname"), abonentData.getName());
-        type(By.name("lastname"), abonentData.getLastName());
+        type(By.name("lastname"), abonentData.getSecondname());
         type(By.name("mobile"), abonentData.getMobilePhone());
         type(By.name("email"), abonentData.getEmail());
-        type(By.name("address2"), abonentData.getAddress());
+        type(By.name("address"), abonentData.getAddress());
+        if (isElementPresent(By.name("new_group"))) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(abonentData.getGroup());
+        }
+
     }
 
     public void abonentSelected() {
