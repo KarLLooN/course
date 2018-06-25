@@ -10,7 +10,7 @@ public class AbonentModificationsTests extends TestBase {
         app.getNavigationHelper().gotoHome();
         app.getAbonentHelper().abonentSelected();
         app.getAbonentHelper().abonentModification();
-        app.getAbonentHelper().fillNewAbonentForm(new AbonentData("New12", "sdsd", "sdds", "sdsd", "new"));
+        app.getAbonentHelper().fillNewAbonentForm(new AbonentData("New_2506", "new_2506", "sdds", "sdsd", "new"));
         app.getAbonentHelper().submitAbonentModification();
         app.getNavigationHelper().returnToHomePage();
     }

@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
 public class AbonentHelper extends HelperBase {
@@ -20,40 +19,27 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void fillNewAbonentForm(AbonentData abonentData) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(abonentData.getName());
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(abonentData.getLastName());
-        wd.findElement(By.name("mobile")).click();
-        wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys(abonentData.getMobilePhone());
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(abonentData.getEmail());
-        wd.findElement(By.name("address2")).click();
-        wd.findElement(By.name("address2")).clear();
-        wd.findElement(By.name("address2")).sendKeys(abonentData.getAddress());
+        type(By.name("firstname"), abonentData.getName());
+        type(By.name("lastname"), abonentData.getLastName());
+        type(By.name("mobile"), abonentData.getMobilePhone());
+        type(By.name("email"), abonentData.getEmail());
+        type(By.name("address2"), abonentData.getAddress());
     }
 
-    public void abonentSelected(){
+    public void abonentSelected() {
         wd.findElement(By.name("selected[]")).click();
     }
 
-    public void abonentDelete(){ click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));}
-
-    public void abonentSelectedAll(){
-        click(By.id("MassCB"));
+    public void abonentDelete() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
-    public void abonentModification(){
+
+
+    public void abonentModification() {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
 
     }
 
-    public void gotoAbonentDetails(){
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
-    }
 
     public void submitAbonentModification() {
         click(By.xpath("//div[@id='content']/form[1]"));
