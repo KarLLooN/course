@@ -23,5 +23,8 @@ public class AbonentDeletedTest extends TestBase {
         List<AbonentData> after = app.getAbonentHelper().getAbonentList();
         Assert.assertEquals(after.size(), befor.size() - 1);
 
+        befor.remove(befor.size() - 1);
+        Assert.assertEquals(befor, after);
+
     }
 }
