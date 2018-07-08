@@ -37,8 +37,8 @@ public class AbonentHelper extends HelperBase {
 
     }
 
-    public void abonentSelected() {
-        wd.findElement(By.name("selected[]")).click();
+    public void abonentSelected(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void abonentDelete() {
@@ -69,6 +69,10 @@ public class AbonentHelper extends HelperBase {
         fillNewAbonentForm(abonent, true);
         submitNewAbonent();
         returnHomePage();
+    }
+
+    public int getAbonentCount() {
+        return wd.findElements(By.name("selected[]")).size();
     }
 }
 
