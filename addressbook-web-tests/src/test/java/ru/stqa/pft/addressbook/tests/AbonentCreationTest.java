@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,13 +20,13 @@ public class AbonentCreationTest extends TestBase {
     public void testAbonentCreation() {
 
         app.getNavigationHelper().gotoHome();
-        int befor = app.getAbonentHelper().getAbonentCount();
+        List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
         app.getAbonentHelper().gotoAddNew();
         app.getAbonentHelper().fillNewAbonentForm(new AbonentData("2506_1_2","2606_1_2","+7777","@","boloto","test1"), true);
         app.getAbonentHelper().submitNewAbonent();
         app.getAbonentHelper().returnHomePage();
-        int after = app.getAbonentHelper().getAbonentCount();
-        Assert.assertEquals(after, befor +1);
+        List<AbonentData> after = app.getAbonentHelper().getAbonentList();
+        Assert.assertEquals(after.size(), befor.size() +1);
 
     }
 

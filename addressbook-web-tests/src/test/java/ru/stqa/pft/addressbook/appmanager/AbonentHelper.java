@@ -3,9 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.AbonentData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AbonentHelper extends HelperBase {
 
@@ -73,6 +77,17 @@ public class AbonentHelper extends HelperBase {
 
     public int getAbonentCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<AbonentData> getAbonentList() {
+        List<AbonentData> abonents = new ArrayList<AbonentData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
+        for(WebElement element : elements){
+            String name = element.getText();
+            AbonentData abonent = new AbonentData(name, null, null, null, null, null);
+            abonents.add(abonent);
+        }
+        return abonents;
     }
 }
 
