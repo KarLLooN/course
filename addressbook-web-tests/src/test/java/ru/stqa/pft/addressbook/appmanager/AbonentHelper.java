@@ -32,11 +32,11 @@ public class AbonentHelper extends HelperBase {
         type(By.name("email"), abonentData.getEmail());
         type(By.name("address"), abonentData.getAddress());
 
-        if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(abonentData.getGroup());
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
+//        if (creation) {
+//            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(abonentData.getGroup());
+//        } else {
+//            Assert.assertFalse(isElementPresent(By.name("new_group")));
+//        }
 
 
     }
@@ -85,7 +85,7 @@ public class AbonentHelper extends HelperBase {
         for(WebElement element : elements){
             String name = element.getText();
             String id = element.findElement(By.tagName("input")).getAttribute("value");
-            AbonentData abonent = new AbonentData(id, name, null, null, null, null, null);
+            AbonentData abonent = new AbonentData(id, name, "new_2506", null, null, null, null);
             abonents.add(abonent);
         }
         return abonents;
