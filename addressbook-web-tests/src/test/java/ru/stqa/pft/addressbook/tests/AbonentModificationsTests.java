@@ -9,17 +9,17 @@ public class AbonentModificationsTests extends TestBase {
     @Test
     public void testAbonentModifications() {
         app.getNavigationHelper().gotoHome();
-        int befor = app.getAbonentHelper().getAbonentCount();
-        if (! app.getAbonentHelper().isThereAAbonent()){
-            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2","2606_1_2","+7777","@","boloto","test1"), true);
+        if (!app.getAbonentHelper().isThereAAbonent()) {
+            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777", "@", "boloto", "test1"), true);
         }
+        int befor = app.getAbonentHelper().getAbonentCount();
         app.getAbonentHelper().abonentSelected(befor - 1);
         app.getAbonentHelper().abonentModification();
         app.getAbonentHelper().fillNewAbonentForm(new AbonentData("New_2506", "new_2506", "sdds", "sdsd", "new", null), false);
         app.getAbonentHelper().submitAbonentModification();
         app.getNavigationHelper().returnToHomePage();
         int after = app.getAbonentHelper().getAbonentCount();
-        Assert.assertEquals(befor,after);
+        Assert.assertEquals(befor, after);
     }
 
 }

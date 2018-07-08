@@ -10,10 +10,10 @@ public class AbonentDeletedTest extends TestBase {
     public void testAbonentDeleted() {
 
         app.getNavigationHelper().gotoHome();
-        int befor = app.getAbonentHelper().getAbonentCount();
         if (!app.getAbonentHelper().isThereAAbonent()) {
             app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777", "@", "boloto", "test1"), true);
         }
+        int befor = app.getAbonentHelper().getAbonentCount();
         app.getAbonentHelper().abonentSelected(befor - 1);
         app.getAbonentHelper().abonentDelete();
         app.getNavigationHelper().closeAlert();
