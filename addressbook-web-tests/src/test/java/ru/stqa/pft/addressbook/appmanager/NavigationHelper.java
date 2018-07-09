@@ -31,7 +31,7 @@ public class NavigationHelper extends HelperBase {
 
     public void returnToHomePage() {
 
-        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+        click(By.xpath("//div[@class='msgbox']//a[.='home page']"));
     }
 
     public void closeAlert() {

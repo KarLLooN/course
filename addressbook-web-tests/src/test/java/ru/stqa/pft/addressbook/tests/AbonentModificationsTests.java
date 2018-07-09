@@ -18,7 +18,7 @@ public class AbonentModificationsTests extends TestBase {
         List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
         app.getAbonentHelper().abonentSelected(befor.size() - 1);
         app.getAbonentHelper().abonentModification();
-        AbonentData abon = new AbonentData(befor.get(befor.size()-1).getId(),"New_2506", "new_25", null, null, null, null);
+        AbonentData abon = new AbonentData(befor.get(befor.size()-1).getId(),"12", "new_25", null, null, null, null);
         app.getAbonentHelper().fillNewAbonentForm(abon, false);
         app.getAbonentHelper().submitAbonentModification();
         app.getNavigationHelper().returnToHomePage();

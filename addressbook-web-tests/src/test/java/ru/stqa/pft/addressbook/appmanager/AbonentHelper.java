@@ -51,13 +51,13 @@ public class AbonentHelper extends HelperBase {
 
 
     public void abonentModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        click(By.xpath("//table[@id='maintable']/tbody/tr[5]/td[8]/a/img"));
 
     }
 
 
     public void submitAbonentModification() {
-        click(By.xpath("//div[@id='content']/form[1]"));
+        click(By.name("update"));
     }
 
     public boolean isThereAAbonent() {
@@ -83,7 +83,7 @@ public class AbonentHelper extends HelperBase {
         List<AbonentData> abonents = new ArrayList<AbonentData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for(WebElement element : elements){
-            String name = element.getText();
+            String name = element.findElement(By.xpath("./td[2]")).getText();
             String id = element.findElement(By.tagName("input")).getAttribute("value");
             AbonentData abonent = new AbonentData(id, name, "new_2506", null, null, null, null);
             abonents.add(abonent);
