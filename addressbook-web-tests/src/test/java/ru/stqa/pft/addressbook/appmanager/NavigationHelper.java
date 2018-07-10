@@ -29,10 +29,7 @@ public class NavigationHelper extends HelperBase {
         click(By.xpath("//div[@id='nav']//a[.='home']"));
     }
 
-    public void returnToHomePage() {
 
-        click(By.xpath("//div[@class='msgbox']//a[.='home page']"));
-    }
 
     public void closeAlert() {
         wd.switchTo().alert().accept();

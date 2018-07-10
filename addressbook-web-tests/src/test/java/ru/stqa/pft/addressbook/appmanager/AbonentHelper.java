@@ -75,6 +75,19 @@ public class AbonentHelper extends HelperBase {
         returnHomePage();
     }
 
+    public void modifyAbonent(int index, AbonentData abonent) {
+        abonentSelected(index);
+        abonentModification();
+        fillNewAbonentForm(abonent, false);
+        submitAbonentModification();
+        returnToHomePage();
+    }
+
+    public void returnToHomePage() {
+
+        click(By.xpath("//div[@class='msgbox']//a[.='home page']"));
+    }
+
     public int getAbonentCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
