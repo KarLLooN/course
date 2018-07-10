@@ -29,8 +29,6 @@ public class AbonentHelper extends HelperBase {
         type(By.name("firstname"), abonentData.getName());
         type(By.name("lastname"), abonentData.getSecondname());
         type(By.name("mobile"), abonentData.getMobilePhone());
-        type(By.name("email"), abonentData.getEmail());
-        type(By.name("address"), abonentData.getAddress());
 
 //        if (creation) {
 //            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(abonentData.getGroup());
@@ -51,7 +49,7 @@ public class AbonentHelper extends HelperBase {
 
 
     public void abonentModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[5]/td[8]/a/img"));
+        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
 
     }
 
@@ -96,10 +94,10 @@ public class AbonentHelper extends HelperBase {
         List<AbonentData> abonents = new ArrayList<AbonentData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for(WebElement element : elements){
-            String name = element.findElement(By.xpath("./td[2]")).getText();
-            String secondname = element.findElement(By.xpath("./td[3]")).getText();
-            String id = element.findElement(By.tagName("input")).getAttribute("value");
-            AbonentData abonent = new AbonentData(id, name, secondname, null, null, null, null);
+            String name = element.findElement(By.xpath("./td[3]")).getText();
+            String secondname = element.findElement(By.xpath("./td[2]")).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            AbonentData abonent = new AbonentData(id, name, secondname, null);
             abonents.add(abonent);
         }
         return abonents;

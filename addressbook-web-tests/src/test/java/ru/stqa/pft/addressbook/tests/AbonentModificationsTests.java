@@ -14,15 +14,15 @@ public class AbonentModificationsTests extends TestBase {
     public void ensurePreconditions() {
         app.getNavigationHelper().gotoHome();
         if (!app.getAbonentHelper().isThereAAbonent()) {
-            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777", "@", "boloto", "test1"), true);
+            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
         }
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testAbonentModifications() {
         List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
         int index = befor.size() - 1;
-        AbonentData abonent = new AbonentData(befor.get(befor.size()-1).getId(),"имя", "фамилия", null, null, null, null);
+        AbonentData abonent = new AbonentData(befor.get(befor.size()-1).getId(),"имя", "фамилия", null);
         app.getAbonentHelper().modifyAbonent(index, abonent);
         List<AbonentData> after = app.getAbonentHelper().getAbonentList();
         Assert.assertEquals(befor.size(), after.size());

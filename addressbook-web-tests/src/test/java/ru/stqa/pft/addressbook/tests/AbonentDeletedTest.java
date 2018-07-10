@@ -13,7 +13,7 @@ public class AbonentDeletedTest extends TestBase {
     public void ensurePreconditions() {
         app.getNavigationHelper().gotoHome();
         if (!app.getAbonentHelper().isThereAAbonent()) {
-            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777", "@", "boloto", "test1"), true);
+            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
         }
     }
 
