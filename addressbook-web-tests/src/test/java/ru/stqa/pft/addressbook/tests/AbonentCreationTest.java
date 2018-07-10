@@ -34,7 +34,10 @@ public class AbonentCreationTest extends TestBase {
 
         abonent.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
         befor.add(abonent);
-        Assert.assertEquals(new HashSet<Object>(befor), new HashSet<Object>(after));
+        Comparator<? super AbonentData> byId = (a1, a2) -> Integer.compare(a1.getId(),a2.getId());
+        befor.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(befor,after);
 
     }
 

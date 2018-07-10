@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -29,6 +30,9 @@ public class AbonentModificationsTests extends TestBase {
 
         befor.remove(index);
         befor.add(abonent);
+        Comparator<? super AbonentData> byId = (a1, a2) -> Integer.compare(a1.getId(),a2.getId());
+        befor.sort(byId);
+        after.sort(byId);
         Assert.assertEquals(new HashSet<Object>(befor),new HashSet<Object>(after));
     }
 

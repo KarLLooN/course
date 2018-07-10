@@ -12,7 +12,7 @@ public class AbonentData {
 
 
     public AbonentData(String name, String secondname, String mobilePhone) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.name = name;
         this.secondname = secondname;
         this.mobilePhone = mobilePhone;
@@ -34,15 +34,13 @@ public class AbonentData {
 
         AbonentData that = (AbonentData) o;
 
-        if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         return secondname != null ? secondname.equals(that.secondname) : that.secondname == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (secondname != null ? secondname.hashCode() : 0);
         return result;
     }
