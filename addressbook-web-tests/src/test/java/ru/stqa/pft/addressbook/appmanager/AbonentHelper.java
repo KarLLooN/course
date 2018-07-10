@@ -49,7 +49,7 @@ public class AbonentHelper extends HelperBase {
 
 
     public void abonentModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
 
     }
 
