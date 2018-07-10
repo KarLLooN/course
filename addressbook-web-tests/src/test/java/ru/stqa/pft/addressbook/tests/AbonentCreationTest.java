@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -23,7 +24,7 @@ public class AbonentCreationTest extends TestBase {
         app.getNavigationHelper().gotoHome();
         List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
         app.getAbonentHelper().gotoAddNew();
-        AbonentData abonent = new AbonentData("имя", "фамилия","телефон");
+        AbonentData abonent = new AbonentData("имя", "фамилия", "телефон");
         app.getAbonentHelper().fillNewAbonentForm(abonent, true);
         app.getAbonentHelper().submitNewAbonent();
         app.getAbonentHelper().returnHomePage();
@@ -31,13 +32,7 @@ public class AbonentCreationTest extends TestBase {
         Assert.assertEquals(after.size(), befor.size() + 1);
 
 
-        int max = 0;
-        for (AbonentData a: after){
-            if (a.getId() > max){
-                max = a.getId();
-            }
-        }
-        abonent.setId(max);
+        abonent.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
         befor.add(abonent);
         Assert.assertEquals(new HashSet<Object>(befor), new HashSet<Object>(after));
 
