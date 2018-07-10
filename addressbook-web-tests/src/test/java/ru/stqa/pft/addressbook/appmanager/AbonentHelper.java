@@ -49,7 +49,9 @@ public class AbonentHelper extends HelperBase {
 
 
     public void abonentModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        List<WebElement> allElement=wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]"));
+        int count=allElement.size()-1;
+        allElement.get(count).findElement(By.xpath("./td[8]/a/img")).click();
 
     }
 

@@ -23,7 +23,7 @@ public class AbonentModificationsTests extends TestBase {
     public void testAbonentModifications() {
         List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
         int index = befor.size() - 1;
-        AbonentData abonent = new AbonentData(befor.get(befor.size()-1).getId(),"имя", "фамилия", null);
+        AbonentData abonent = new AbonentData(befor.get(befor.size()-1).getId(),"имя_new", "фамилия", null);
         app.getAbonentHelper().modifyAbonent(index, abonent);
         List<AbonentData> after = app.getAbonentHelper().getAbonentList();
         Assert.assertEquals(befor.size(), after.size());
