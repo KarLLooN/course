@@ -84,8 +84,9 @@ public class AbonentHelper extends HelperBase {
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for(WebElement element : elements){
             String name = element.findElement(By.xpath("./td[2]")).getText();
+            String secondname = element.findElement(By.xpath("./td[3]")).getText();
             String id = element.findElement(By.tagName("input")).getAttribute("value");
-            AbonentData abonent = new AbonentData(id, name, "new_2506", null, null, null, null);
+            AbonentData abonent = new AbonentData(id, name, secondname, null, null, null, null);
             abonents.add(abonent);
         }
         return abonents;
