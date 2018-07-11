@@ -1,11 +1,8 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
 import java.util.ArrayList;
@@ -48,10 +45,11 @@ public class AbonentHelper extends HelperBase {
     }
 
 
-    public void abonentModification() {
-        List<WebElement> allElement=wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]"));
-        int count=allElement.size()-1;
-        allElement.get(count).findElement(By.xpath("./td[8]/a/img")).click();
+    public void abonentModification(int index) {
+        wd.findElements(By.xpath("//td[8]/a/img")).get(index).click();
+//        List<WebElement> allElement=wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]"));
+//        int count=allElement.size()-1;
+//        allElement.get(count).findElement(By.xpath("./td[8]/a/img")).click();
 
     }
 
@@ -77,7 +75,7 @@ public class AbonentHelper extends HelperBase {
 
     public void modifyAbonent(int index, AbonentData abonent) {
         abonentSelected(index);
-        abonentModification();
+        abonentModification(index);
         fillNewAbonentForm(abonent, false);
         submitAbonentModification();
         returnToHomePage();
