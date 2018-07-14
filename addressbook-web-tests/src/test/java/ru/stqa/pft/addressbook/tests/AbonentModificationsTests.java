@@ -13,7 +13,7 @@ public class AbonentModificationsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.getNavigationHelper().gotoHome();
+        app.goTo().gotoHome();
         if (!app.getAbonentHelper().isThereAAbonent()) {
             app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
         }

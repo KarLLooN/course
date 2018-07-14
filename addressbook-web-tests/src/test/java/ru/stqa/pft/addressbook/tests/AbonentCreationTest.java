@@ -1,18 +1,11 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.*;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
 public class AbonentCreationTest extends TestBase {
@@ -21,7 +14,7 @@ public class AbonentCreationTest extends TestBase {
     @Test
     public void testAbonentCreation() {
 
-        app.getNavigationHelper().gotoHome();
+        app.goTo().gotoHome();
         List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
         app.getAbonentHelper().gotoAddNew();
         AbonentData abonent = new AbonentData("имя", "фамилия", "телефон");
