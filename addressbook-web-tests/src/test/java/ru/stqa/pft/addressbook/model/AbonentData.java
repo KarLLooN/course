@@ -37,13 +37,15 @@ public class AbonentData {
 
         AbonentData that = (AbonentData) o;
 
+        if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         return secondname != null ? secondname.equals(that.secondname) : that.secondname == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (secondname != null ? secondname.hashCode() : 0);
         return result;
     }

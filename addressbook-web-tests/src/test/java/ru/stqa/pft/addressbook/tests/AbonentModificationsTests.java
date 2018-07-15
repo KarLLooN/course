@@ -5,16 +5,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
-import java.util.Comparator;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 public class AbonentModificationsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().home();
-        if (app.abonent().list().size()==0) {
+        if (app.abonent().all().size()==0) {
             app.abonent().create(new AbonentData()
                     .withName("Modif_create_name").withSecondname("Modif_create_secondname_2"), true);
         }
@@ -22,19 +21,16 @@ public class AbonentModificationsTests extends TestBase {
 
     @Test(enabled = true)
     public void testAbonentModifications() {
-        List<AbonentData> befor = app.abonent().list();
-        int index = befor.size() - 1;
+        Set<AbonentData> befor = app.abonent().all();
+        AbonentData modifyAbonent = befor.iterator().next();
         AbonentData abonent = new AbonentData()
-                .withId(befor.get(index).getId()).withName("Modify_name").withSecondname("Modify_secondname");
-        app.abonent().modify(index, abonent);
-        List<AbonentData> after = app.abonent().list();
+                .withId(modifyAbonent.getId()).withName("Modify_name").withSecondname("Modify_secondname");
+        app.abonent().modify(abonent);
+        Set<AbonentData> after = app.abonent().all();
         Assert.assertEquals(befor.size(), after.size());
 
-        befor.remove(index);
+        befor.remove(modifyAbonent);
         befor.add(abonent);
-        Comparator<? super AbonentData> byId = (a1, a2) -> Integer.compare(a1.getId(),a2.getId());
-        befor.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(new HashSet<Object>(befor),new HashSet<Object>(after));
     }
 

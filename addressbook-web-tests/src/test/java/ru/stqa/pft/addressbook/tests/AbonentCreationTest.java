@@ -2,11 +2,9 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Comparator;
-import java.util.List;
-
 import ru.stqa.pft.addressbook.model.AbonentData;
+
+import java.util.Set;
 
 public class AbonentCreationTest extends TestBase {
 
@@ -15,19 +13,15 @@ public class AbonentCreationTest extends TestBase {
     public void testAbonentCreation() {
 
         app.goTo().home();
-        List<AbonentData> befor = app.abonent().list();
+        Set<AbonentData> befor = app.abonent().all();
         app.abonent().addNew();
         AbonentData abonent = new AbonentData().withName("Name1").withSecondname("Sec_name1");
         app.abonent().create(abonent, true);
-        List<AbonentData> after = app.abonent().list();
+        Set<AbonentData> after = app.abonent().all();
         Assert.assertEquals(after.size(), befor.size() + 1);
 
-
-        abonent.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        abonent.withId(after.stream().mapToInt((a)->a.getId()).max().getAsInt());
         befor.add(abonent);
-        Comparator<? super AbonentData> byId = (a1, a2) -> Integer.compare(a1.getId(),a2.getId());
-        befor.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(befor,after);
 
     }

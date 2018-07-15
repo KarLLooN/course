@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.AbonentData;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class AbonentHelper extends HelperBase {
 
@@ -30,16 +31,16 @@ public class AbonentHelper extends HelperBase {
 
     }
 
-    public void abonentSelected(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
+    public void abonentSelectedById(int id) {
+        wd.findElement(By.cssSelector("input[value = '" + id + "']")).click();
     }
 
     public void abonentDelete() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
-    public void delete(int index) {
-        abonentSelected(index);
+    public void delete(AbonentData abonent) {
+        abonentSelectedById(abonent.getId());
         abonentDelete();
         closeAlert();
         home();
@@ -57,8 +58,8 @@ public class AbonentHelper extends HelperBase {
     }
 
 
-    public void abonentModification(int index) {
-        wd.findElements(By.xpath("//td[8]/a/img")).get(index).click();
+    public void abonentModification(int id) {
+        wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
     }
 
     public void submitAbonentModification() {
@@ -80,9 +81,8 @@ public class AbonentHelper extends HelperBase {
         returnHomePage();
     }
 
-    public void modify(int index, AbonentData abonent) {
-        abonentSelected(index);
-        abonentModification(index);
+    public void modify(AbonentData abonent) {
+        abonentModification(abonent.getId());
         fillNewAbonentForm(abonent, false);
         submitAbonentModification();
         returnToHomePage();
@@ -97,10 +97,10 @@ public class AbonentHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<AbonentData> list() {
-        List<AbonentData> abonents = new ArrayList<AbonentData>();
+    public Set<AbonentData> all() {
+        Set<AbonentData> abonents = new HashSet<AbonentData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
-        for(WebElement element : elements){
+        for (WebElement element : elements) {
             String name = element.findElement(By.xpath("./td[3]")).getText();
             String secondname = element.findElement(By.xpath("./td[2]")).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
@@ -108,5 +108,7 @@ public class AbonentHelper extends HelperBase {
         }
         return abonents;
     }
+
+
 }
 
