@@ -52,8 +52,6 @@ public class AbonentHelper extends HelperBase {
         click(By.xpath("//div[@id='nav']//a[.='home']"));
     }
 
-
-
     public void closeAlert() {
         wd.switchTo().alert().accept();
     }
@@ -61,12 +59,7 @@ public class AbonentHelper extends HelperBase {
 
     public void abonentModification(int index) {
         wd.findElements(By.xpath("//td[8]/a/img")).get(index).click();
-//        List<WebElement> allElement=wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[2]"));
-//        int count=allElement.size()-1;
-//        allElement.get(count).findElement(By.xpath("./td[8]/a/img")).click();
-
     }
-
 
     public void submitAbonentModification() {
         click(By.name("update"));
@@ -111,8 +104,7 @@ public class AbonentHelper extends HelperBase {
             String name = element.findElement(By.xpath("./td[3]")).getText();
             String secondname = element.findElement(By.xpath("./td[2]")).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            AbonentData abonent = new AbonentData().withId(id).withName(name).withSecondname(secondname);
-            abonents.add(abonent);
+            abonents.add(new AbonentData().withId(id).withName(name).withSecondname(secondname));
         }
         return abonents;
     }

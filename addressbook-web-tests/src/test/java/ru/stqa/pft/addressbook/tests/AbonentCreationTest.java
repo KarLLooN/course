@@ -18,7 +18,7 @@ public class AbonentCreationTest extends TestBase {
         List<AbonentData> befor = app.abonent().list();
         app.abonent().addNew();
         AbonentData abonent = new AbonentData().withName("Name1").withSecondname("Sec_name1");
-        app.abonent().create(abonent, true);
+        app.abonent().fillNewAbonentForm(abonent, true);
         app.abonent().submit();
         app.abonent().home();
         List<AbonentData> after = app.abonent().list();
