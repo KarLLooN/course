@@ -61,7 +61,7 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-    public AbonentHelper getAbonentHelper() {
+    public AbonentHelper abonent() {
         return abonentHelper;
     }
 }

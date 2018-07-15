@@ -18,7 +18,7 @@ public class AbonentHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
-    public void submitNewAbonent() {
+    public void submit() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
@@ -26,12 +26,6 @@ public class AbonentHelper extends HelperBase {
         type(By.name("firstname"), abonentData.getName());
         type(By.name("lastname"), abonentData.getSecondname());
         type(By.name("mobile"), abonentData.getMobilePhone());
-
-//        if (creation) {
-//            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(abonentData.getGroup());
-//        } else {
-//            Assert.assertFalse(isElementPresent(By.name("new_group")));
-//        }
 
 
     }
@@ -42,6 +36,26 @@ public class AbonentHelper extends HelperBase {
 
     public void abonentDelete() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public void delete(int index) {
+        abonentSelected(index);
+        abonentDelete();
+        closeAlert();
+        home();
+    }
+
+    public void home() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.xpath("//div[@id='nav']//a[.='home']"));
+    }
+
+
+
+    public void closeAlert() {
+        wd.switchTo().alert().accept();
     }
 
 
@@ -62,18 +76,18 @@ public class AbonentHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void gotoAddNew() {
+    public void addNew() {
         click(By.linkText("add new"));
     }
 
-    public void createAbonent(AbonentData abonent, boolean b) {
-        gotoAddNew();
+    public void create(AbonentData abonent, boolean b) {
+        addNew();
         fillNewAbonentForm(abonent, true);
-        submitNewAbonent();
+        submit();
         returnHomePage();
     }
 
-    public void modifyAbonent(int index, AbonentData abonent) {
+    public void modify(int index, AbonentData abonent) {
         abonentSelected(index);
         abonentModification(index);
         fillNewAbonentForm(abonent, false);
@@ -90,7 +104,7 @@ public class AbonentHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<AbonentData> getAbonentList() {
+    public List<AbonentData> list() {
         List<AbonentData> abonents = new ArrayList<AbonentData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for(WebElement element : elements){

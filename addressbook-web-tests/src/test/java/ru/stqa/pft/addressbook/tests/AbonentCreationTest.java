@@ -14,14 +14,14 @@ public class AbonentCreationTest extends TestBase {
     @Test
     public void testAbonentCreation() {
 
-        app.goTo().gotoHome();
-        List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
-        app.getAbonentHelper().gotoAddNew();
+        app.goTo().home();
+        List<AbonentData> befor = app.abonent().list();
+        app.abonent().addNew();
         AbonentData abonent = new AbonentData("имя", "фамилия", "телефон");
-        app.getAbonentHelper().fillNewAbonentForm(abonent, true);
-        app.getAbonentHelper().submitNewAbonent();
-        app.getAbonentHelper().returnHomePage();
-        List<AbonentData> after = app.getAbonentHelper().getAbonentList();
+        app.abonent().fillNewAbonentForm(abonent, true);
+        app.abonent().submit();
+        app.abonent().home();
+        List<AbonentData> after = app.abonent().list();
         Assert.assertEquals(after.size(), befor.size() + 1);
 
 

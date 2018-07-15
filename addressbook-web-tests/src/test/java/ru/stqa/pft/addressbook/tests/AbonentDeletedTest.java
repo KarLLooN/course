@@ -11,24 +11,24 @@ public class AbonentDeletedTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().gotoHome();
-        if (!app.getAbonentHelper().isThereAAbonent()) {
-            app.getAbonentHelper().createAbonent(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
+        app.goTo().home();
+        if (app.abonent().list().size() == 0) {
+            app.abonent().create(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
         }
     }
 
     @Test
     public void testAbonentDeleted() {
-        List<AbonentData> befor = app.getAbonentHelper().getAbonentList();
-        app.getAbonentHelper().abonentSelected(befor.size() - 1);
-        app.getAbonentHelper().abonentDelete();
-        app.goTo().closeAlert();
-        app.goTo().gotoHome();
-        List<AbonentData> after = app.getAbonentHelper().getAbonentList();
+        List<AbonentData> befor = app.abonent().list();
+        int index = befor.size() - 1;
+        app.abonent().delete(index);
+        List<AbonentData> after = app.abonent().list();
         Assert.assertEquals(after.size(), befor.size() - 1);
 
-        befor.remove(befor.size() - 1);
+        befor.remove(index);
         Assert.assertEquals(befor, after);
 
     }
+
+
 }
