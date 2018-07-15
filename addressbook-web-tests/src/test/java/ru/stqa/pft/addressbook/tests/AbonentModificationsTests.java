@@ -4,16 +4,17 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
+import ru.stqa.pft.addressbook.model.Abonents;
 
-import java.util.HashSet;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AbonentModificationsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().home();
-        if (app.abonent().all().size()==0) {
+        if (app.abonent().all().size() == 0) {
             app.abonent().create(new AbonentData()
                     .withName("Modif_create_name").withSecondname("Modif_create_secondname_2"), true);
         }
@@ -21,19 +22,15 @@ public class AbonentModificationsTests extends TestBase {
 
     @Test(enabled = true)
     public void testAbonentModifications() {
-        Set<AbonentData> befor = app.abonent().all();
+        Abonents befor = app.abonent().all();
         AbonentData modifyAbonent = befor.iterator().next();
         AbonentData abonent = new AbonentData()
                 .withId(modifyAbonent.getId()).withName("Modify_name").withSecondname("Modify_secondname");
         app.abonent().modify(abonent);
-        Set<AbonentData> after = app.abonent().all();
+        Abonents after = app.abonent().all();
         Assert.assertEquals(befor.size(), after.size());
-
-        befor.remove(modifyAbonent);
-        befor.add(abonent);
-        Assert.assertEquals(new HashSet<Object>(befor),new HashSet<Object>(after));
+        assertThat(after, equalTo(befor.withOut(modifyAbonent).withAdded(abonent)));
     }
-
 
 
 }

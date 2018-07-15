@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.AbonentData;
+import ru.stqa.pft.addressbook.model.Abonents;
 
 import java.util.HashSet;
 import java.util.List;
@@ -97,8 +98,8 @@ public class AbonentHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public Set<AbonentData> all() {
-        Set<AbonentData> abonents = new HashSet<AbonentData>();
+    public Abonents all() {
+        Abonents abonents = new Abonents();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for (WebElement element : elements) {
             String name = element.findElement(By.xpath("./td[3]")).getText();

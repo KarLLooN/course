@@ -4,8 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
+import ru.stqa.pft.addressbook.model.Abonents;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AbonentDeletedTest extends TestBase {
 
@@ -19,14 +21,12 @@ public class AbonentDeletedTest extends TestBase {
 
     @Test
     public void testAbonentDeleted() {
-        Set<AbonentData> befor = app.abonent().all();
+        Abonents befor = app.abonent().all();
         AbonentData deletedAonent = befor.iterator().next();
         app.abonent().delete(deletedAonent);
-        Set<AbonentData> after = app.abonent().all();
+        Abonents after = app.abonent().all();
         Assert.assertEquals(after.size(), befor.size() - 1);
-
-        befor.remove(deletedAonent);
-        Assert.assertEquals(befor, after);
+        assertThat(after, equalTo(befor.withOut(deletedAonent)));
 
     }
 
