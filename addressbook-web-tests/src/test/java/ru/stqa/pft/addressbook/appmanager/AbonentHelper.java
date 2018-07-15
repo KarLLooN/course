@@ -19,7 +19,7 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void submit() {
-        click(By.xpath("//div[@id='content']/form/input[21]"));
+        click(By.name("submit"));
     }
 
     public void fillNewAbonentForm(AbonentData abonentData, boolean creation) {
@@ -111,7 +111,7 @@ public class AbonentHelper extends HelperBase {
             String name = element.findElement(By.xpath("./td[3]")).getText();
             String secondname = element.findElement(By.xpath("./td[2]")).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            AbonentData abonent = new AbonentData(id, name, secondname, null);
+            AbonentData abonent = new AbonentData().withId(id).withName(name).withSecondname(secondname);
             abonents.add(abonent);
         }
         return abonents;

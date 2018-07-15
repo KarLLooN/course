@@ -15,7 +15,8 @@ public class AbonentModificationsTests extends TestBase {
     public void ensurePreconditions() {
         app.goTo().home();
         if (app.abonent().list().size()==0) {
-            app.abonent().create(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
+            app.abonent().create(new AbonentData()
+                    .withName("Modif_create_name").withSecondname("Modif_create_secondname_2"), true);
         }
     }
 
@@ -23,7 +24,8 @@ public class AbonentModificationsTests extends TestBase {
     public void testAbonentModifications() {
         List<AbonentData> befor = app.abonent().list();
         int index = befor.size() - 1;
-        AbonentData abonent = new AbonentData(befor.get(befor.size()-1).getId(),"имя_new", "фамилия", null);
+        AbonentData abonent = new AbonentData()
+                .withId(befor.get(index).getId()).withName("Modify_name").withSecondname("Modify_secondname");
         app.abonent().modify(index, abonent);
         List<AbonentData> after = app.abonent().list();
         Assert.assertEquals(befor.size(), after.size());

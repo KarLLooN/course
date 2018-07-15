@@ -13,7 +13,7 @@ public class AbonentDeletedTest extends TestBase {
     public void ensurePreconditions() {
         app.goTo().home();
         if (app.abonent().list().size() == 0) {
-            app.abonent().create(new AbonentData("2506_1_2", "2606_1_2", "+7777"), true);
+            app.abonent().create(new AbonentData().withName("Deleted_1_name").withSecondname("deleted_secondname_2"), true);
         }
     }
 

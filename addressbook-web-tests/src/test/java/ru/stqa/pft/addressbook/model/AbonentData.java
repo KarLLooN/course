@@ -1,30 +1,33 @@
 package ru.stqa.pft.addressbook.model;
 
 public class AbonentData {
-    private int id;
-    private final String name;
-    private final String secondname;
-    private final String mobilePhone;
+    private int id = Integer.MAX_VALUE;
+    private String name;
+    private String secondname;
+    private String mobilePhone;
 
     public void setId(int id) {
         this.id = id;
     }
 
-
-    public AbonentData(String name, String secondname, String mobilePhone) {
-        this.id = Integer.MAX_VALUE;
-        this.name = name;
-        this.secondname = secondname;
-        this.mobilePhone = mobilePhone;
-
+    public AbonentData withId(int id) {
+        this.id = id;
+        return this;
     }
 
-    public AbonentData(int id, String name, String secondname, String mobilePhone) {
-        this.id = id;
+    public AbonentData withName(String name) {
         this.name = name;
-        this.secondname = secondname;
-        this.mobilePhone = mobilePhone;
+        return this;
+    }
 
+    public AbonentData withSecondname(String secondname) {
+        this.secondname = secondname;
+        return this;
+    }
+
+    public AbonentData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+        return this;
     }
 
     @Override
