@@ -43,6 +43,7 @@ public class AbonentHelper extends HelperBase {
     public void delete(AbonentData abonent) {
         abonentSelectedById(abonent.getId());
         abonentDelete();
+        abonentCach = null;
         closeAlert();
         home();
     }
@@ -79,6 +80,7 @@ public class AbonentHelper extends HelperBase {
         addNew();
         fillNewAbonentForm(abonent, true);
         submit();
+        abonentCach = null;
         returnHomePage();
     }
 
@@ -86,6 +88,7 @@ public class AbonentHelper extends HelperBase {
         abonentModification(abonent.getId());
         fillNewAbonentForm(abonent, false);
         submitAbonentModification();
+        abonentCach = null;
         returnToHomePage();
     }
 
@@ -98,16 +101,21 @@ public class AbonentHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
+    private Abonents abonentCach = null;
+
     public Abonents all() {
-        Abonents abonents = new Abonents();
+        if(abonentCach != null){
+            return new Abonents(abonentCach);
+        }
+        abonentCach = new Abonents();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for (WebElement element : elements) {
             String name = element.findElement(By.xpath("./td[3]")).getText();
             String secondname = element.findElement(By.xpath("./td[2]")).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            abonents.add(new AbonentData().withId(id).withName(name).withSecondname(secondname));
+            abonentCach.add(new AbonentData().withId(id).withName(name).withSecondname(secondname));
         }
-        return abonents;
+        return new Abonents(abonentCach);
     }
 
 
