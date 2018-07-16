@@ -61,7 +61,7 @@ public class AbonentHelper extends HelperBase {
 
 
     public void abonentModification(int id) {
-        wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id))).click();
+        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
 
     public void submitAbonentModification() {
