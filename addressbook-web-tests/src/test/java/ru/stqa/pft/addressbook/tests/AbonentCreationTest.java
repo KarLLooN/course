@@ -18,8 +18,8 @@ public class AbonentCreationTest extends TestBase {
         app.abonent().addNew();
         AbonentData abonent = new AbonentData().withName("Name1").withSecondname("Sec_name1");
         app.abonent().create(abonent, true);
+        assertThat(app.abonent().count(), equalTo(befor.size()+1));
         Abonents after = app.abonent().all();
-        assertThat(after.size(),equalTo(befor.size() + 1));
         assertThat(after, equalTo
                 (befor.withAdded(abonent.withId(after.stream().mapToInt((a)->a.getId()).max().getAsInt()))));
     }

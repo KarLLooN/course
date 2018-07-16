@@ -24,8 +24,8 @@ public class AbonentDeletedTest extends TestBase {
         Abonents befor = app.abonent().all();
         AbonentData deletedAonent = befor.iterator().next();
         app.abonent().delete(deletedAonent);
+        assertThat(app.abonent().count(), equalTo(befor.size()-1));
         Abonents after = app.abonent().all();
-        Assert.assertEquals(after.size(), befor.size() - 1);
         assertThat(after, equalTo(befor.withOut(deletedAonent)));
 
     }

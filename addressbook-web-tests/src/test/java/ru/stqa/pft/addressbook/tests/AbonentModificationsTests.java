@@ -27,8 +27,8 @@ public class AbonentModificationsTests extends TestBase {
         AbonentData abonent = new AbonentData()
                 .withId(modifyAbonent.getId()).withName("Modify_name").withSecondname("Modify_secondname");
         app.abonent().modify(abonent);
+        assertThat(app.abonent().count(), equalTo(befor.size()));
         Abonents after = app.abonent().all();
-        Assert.assertEquals(befor.size(), after.size());
         assertThat(after, equalTo(befor.withOut(modifyAbonent).withAdded(abonent)));
     }
 

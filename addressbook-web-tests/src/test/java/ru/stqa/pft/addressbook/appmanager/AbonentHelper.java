@@ -97,7 +97,7 @@ public class AbonentHelper extends HelperBase {
         click(By.xpath("//div[@class='msgbox']//a[.='home page']"));
     }
 
-    public int getAbonentCount() {
+    public int count() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
