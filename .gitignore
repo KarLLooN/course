@@ -30,3 +30,5 @@ sandbox/.idea/workspace.xml
 .idea/libraries/Gradle__com_google_guava_guava_23_6_jre.xml
 *.xml
 *.class
+*.iml
+*.class
