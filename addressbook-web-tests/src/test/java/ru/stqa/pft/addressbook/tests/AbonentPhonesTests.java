@@ -17,9 +17,13 @@ public class AbonentPhonesTests extends TestBase{
         AbonentData abonent = app.abonent().all().iterator().next();
         AbonentData abonentInfoFromEditForm = app.abonent().infoFromEditForm(abonent);
 
-        assertThat(abonent.getHomePhone(), equalTo(abonentInfoFromEditForm.getHomePhone()));
-        assertThat(abonent.getMobilePhone(), equalTo(abonentInfoFromEditForm.getMobilePhone()));
-        assertThat(abonent.getWorkPhone(), equalTo(abonentInfoFromEditForm.getWorkPhone()));
+        assertThat(abonent.getHomePhone(), equalTo(cleaned(abonentInfoFromEditForm.getHomePhone())));
+        assertThat(abonent.getMobilePhone(), equalTo(cleaned(abonentInfoFromEditForm.getMobilePhone())));
+        assertThat(abonent.getWorkPhone(), equalTo(cleaned(abonentInfoFromEditForm.getWorkPhone())));
+    }
+
+    public String cleaned(String phone){
+        return phone.replaceAll("\\s","").replaceAll("[-()]","");
     }
 
 }
