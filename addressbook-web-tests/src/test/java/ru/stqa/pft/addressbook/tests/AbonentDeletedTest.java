@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
@@ -15,7 +14,7 @@ public class AbonentDeletedTest extends TestBase {
     public void ensurePreconditions() {
         app.goTo().home();
         if (app.abonent().all().size() == 0) {
-            app.abonent().create(new AbonentData().withName("Deleted_1_name").withSecondname("deleted_secondname_2"), true);
+            app.abonent().create(new AbonentData().withFirstname("Deleted_1_name").withLastname("deleted_secondname_2"), true);
         }
     }
 

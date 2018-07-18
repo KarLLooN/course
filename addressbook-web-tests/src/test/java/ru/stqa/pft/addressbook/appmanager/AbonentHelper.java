@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.AbonentData;
 import ru.stqa.pft.addressbook.model.Abonents;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class AbonentHelper extends HelperBase {
 
@@ -25,10 +23,11 @@ public class AbonentHelper extends HelperBase {
     }
 
     public void fillNewAbonentForm(AbonentData abonentData, boolean creation) {
-        type(By.name("firstname"), abonentData.getName());
-        type(By.name("lastname"), abonentData.getSecondname());
+        type(By.name("firstname"), abonentData.getFirstname());
+        type(By.name("lastname"), abonentData.getLastname());
         type(By.name("mobile"), abonentData.getMobilePhone());
-
+        type(By.name("home"), abonentData.getHomePhone());
+        type(By.name("work"), abonentData.getWorkPhone());
 
     }
 
@@ -110,12 +109,33 @@ public class AbonentHelper extends HelperBase {
         abonentCach = new Abonents();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
         for (WebElement element : elements) {
-            String name = element.findElement(By.xpath("./td[3]")).getText();
-            String secondname = element.findElement(By.xpath("./td[2]")).getText();
+            String firstname = element.findElement(By.xpath("./td[3]")).getText();
+            String lastname = element.findElement(By.xpath("./td[2]")).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            abonentCach.add(new AbonentData().withId(id).withName(name).withSecondname(secondname));
+            String[] phones = element.findElement(By.xpath("./td[6]")).getText().split("\n");
+            abonentCach.add(new AbonentData().withId(id).withFirstname(firstname).withLastname(lastname)
+                    .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
         }
         return new Abonents(abonentCach);
+    }
+
+    public AbonentData infoFromEditForm(AbonentData abonent){
+        initAbonentModificationById(abonent.getId());
+        String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+        String home = wd.findElement(By.name("home")).getAttribute("value");
+        String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+        String work = wd.findElement(By.name("work")).getAttribute("value");
+        wd.navigate().back();
+        return new AbonentData().withId(abonent.getId()).withFirstname(firstname).withLastname(lastname)
+                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+    }
+
+    private void initAbonentModificationById(int id) {
+        WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']",id)));
+        WebElement row = checkbox.findElement(By.xpath("./../.."));
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        cells.get(7).findElement(By.tagName("a")).click();
     }
 
 

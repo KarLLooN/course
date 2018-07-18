@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
@@ -16,7 +15,7 @@ public class AbonentModificationsTests extends TestBase {
         app.goTo().home();
         if (app.abonent().all().size() == 0) {
             app.abonent().create(new AbonentData()
-                    .withName("Modif_create_name").withSecondname("Modif_create_secondname_2"), true);
+                    .withFirstname("Modif_create_name").withLastname("Modif_create_secondname_2"), true);
         }
     }
 
@@ -25,7 +24,7 @@ public class AbonentModificationsTests extends TestBase {
         Abonents befor = app.abonent().all();
         AbonentData modifyAbonent = befor.iterator().next();
         AbonentData abonent = new AbonentData()
-                .withId(modifyAbonent.getId()).withName("Modify_name").withSecondname("Modify_secondname");
+                .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("11111").withHomePhone("11111").withWorkPhone("11111");
         app.abonent().modify(abonent);
         assertThat(app.abonent().count(), equalTo(befor.size()));
         Abonents after = app.abonent().all();

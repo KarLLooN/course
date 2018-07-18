@@ -16,7 +16,8 @@ public class AbonentCreationTest extends TestBase {
         app.goTo().home();
         Abonents befor = app.abonent().all();
         app.abonent().addNew();
-        AbonentData abonent = new AbonentData().withName("Name1").withSecondname("Sec_name1");
+        AbonentData abonent = new AbonentData()
+                .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("45454").withHomePhone("555").withWorkPhone("2311313");
         app.abonent().create(abonent, true);
         assertThat(app.abonent().count(), equalTo(befor.size()+1));
         Abonents after = app.abonent().all();

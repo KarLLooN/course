@@ -2,12 +2,24 @@ package ru.stqa.pft.addressbook.model;
 
 public class AbonentData {
     private int id = Integer.MAX_VALUE;
-    private String name;
-    private String secondname;
+    private String firstname;
+    private String lastname;
     private String mobilePhone;
+    private String homePhone;
+    private String workPhone;
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public AbonentData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
+
+    public AbonentData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
     }
 
     public AbonentData withId(int id) {
@@ -15,13 +27,13 @@ public class AbonentData {
         return this;
     }
 
-    public AbonentData withName(String name) {
-        this.name = name;
+    public AbonentData withFirstname(String name) {
+        this.firstname = name;
         return this;
     }
 
-    public AbonentData withSecondname(String secondname) {
-        this.secondname = secondname;
+    public AbonentData withLastname(String secondname) {
+        this.lastname = secondname;
         return this;
     }
 
@@ -38,15 +50,15 @@ public class AbonentData {
         AbonentData that = (AbonentData) o;
 
         if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        return secondname != null ? secondname.equals(that.secondname) : that.secondname == null;
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (secondname != null ? secondname.hashCode() : 0);
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
     }
 
@@ -54,8 +66,8 @@ public class AbonentData {
     public String toString() {
         return "AbonentData{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", secondname='" + secondname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 
@@ -63,12 +75,12 @@ public class AbonentData {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getSecondname() {
-        return secondname;
+    public String getLastname() {
+        return lastname;
     }
 
     public String getMobilePhone() {
@@ -76,4 +88,11 @@ public class AbonentData {
     }
 
 
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
 }
