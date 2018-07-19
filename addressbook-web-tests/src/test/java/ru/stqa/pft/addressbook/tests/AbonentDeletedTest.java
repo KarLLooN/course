@@ -14,7 +14,8 @@ public class AbonentDeletedTest extends TestBase {
     public void ensurePreconditions() {
         app.goTo().home();
         if (app.abonent().all().size() == 0) {
-            app.abonent().create(new AbonentData().withFirstname("Deleted_1_name").withLastname("deleted_secondname_2"), true);
+            app.abonent().create(new AbonentData()
+                    .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("45454").withHomePhone("555").withWorkPhone("2311313"), true);
         }
     }
 

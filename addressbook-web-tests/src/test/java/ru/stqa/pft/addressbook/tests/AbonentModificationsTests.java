@@ -15,7 +15,7 @@ public class AbonentModificationsTests extends TestBase {
         app.goTo().home();
         if (app.abonent().all().size() == 0) {
             app.abonent().create(new AbonentData()
-                    .withFirstname("Modif_create_name").withLastname("Modif_create_secondname_2"), true);
+                    .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("45454").withHomePhone("555").withWorkPhone("2311313"), true);
         }
     }
 
@@ -24,7 +24,7 @@ public class AbonentModificationsTests extends TestBase {
         Abonents befor = app.abonent().all();
         AbonentData modifyAbonent = befor.iterator().next();
         AbonentData abonent = new AbonentData()
-                .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("11111").withHomePhone("11111").withWorkPhone("11111");
+                .withId(modifyAbonent.getId()).withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("11111").withHomePhone("11111").withWorkPhone("11111");
         app.abonent().modify(abonent);
         assertThat(app.abonent().count(), equalTo(befor.size()));
         Abonents after = app.abonent().all();
