@@ -1,13 +1,9 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
-import ru.stqa.pft.addressbook.model.Abonents;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -32,11 +28,14 @@ public class AbonentPhonesTests extends TestBase {
         AbonentData abonentInfoFromEditForm = app.abonent().infoFromEditForm(abonent);
 
         assertThat(abonent.getAllPhones(), equalTo(mergePhones(abonentInfoFromEditForm)));
+
     }
 
+
     private String mergePhones(AbonentData abonent) {
-       return Arrays.asList(abonent.getHomePhone(),abonent.getMobilePhone(),abonent.getWorkPhone())
-                .stream().filter((s)-> ! s.equals(""))
+       return Arrays.asList(abonent.getHomePhone(),abonent.getMobilePhone(),abonent.getWorkPhone()
+               ,abonent.getEmail(),abonent.getEmail2(),abonent.getEmail3(),abonent.getAddress())
+               .stream().filter((s)-> ! s.equals(""))
                .map(AbonentPhonesTests::cleaned)
                .collect(Collectors.joining("\n"));
     }

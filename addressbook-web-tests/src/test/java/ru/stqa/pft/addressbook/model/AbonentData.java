@@ -7,20 +7,72 @@ public class AbonentData {
     private String mobilePhone;
     private String homePhone;
     private String workPhone;
+    private String email;
+    private String email2;
+    private String address;
+    private String email3;
+    private String allPhones;
+    private String allEmails;
 
-    public String getAllPhones() {
-        return allPhones;
+
+    public AbonentData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
     }
+
+    public AbonentData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public AbonentData withFirstname(String name) {
+        this.firstname = name;
+        return this;
+    }
+
+    public AbonentData withLastname(String secondname) {
+        this.lastname = secondname;
+        return this;
+    }
+
+    public AbonentData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+        return this;
+    }
+
+    public AbonentData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+
+    public AbonentData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+
+    public AbonentData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+
+    public AbonentData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+
 
     public AbonentData withAllPhones(String allPhones) {
         this.allPhones = allPhones;
         return this;
     }
 
-    private String allPhones;
-
-    public void setId(int id) {
-        this.id = id;
+    public AbonentData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
     }
 
     public AbonentData withWorkPhone(String workPhone) {
@@ -54,30 +106,6 @@ public class AbonentData {
         return result;
     }
 
-    public AbonentData withHomePhone(String homePhone) {
-        this.homePhone = homePhone;
-        return this;
-    }
-
-    public AbonentData withId(int id) {
-        this.id = id;
-        return this;
-    }
-
-    public AbonentData withFirstname(String name) {
-        this.firstname = name;
-        return this;
-    }
-
-    public AbonentData withLastname(String secondname) {
-        this.lastname = secondname;
-        return this;
-    }
-
-    public AbonentData withMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
-        return this;
-    }
 
     @Override
     public String toString() {
@@ -104,12 +132,34 @@ public class AbonentData {
         return mobilePhone;
     }
 
-
     public String getWorkPhone() {
         return workPhone;
     }
 
     public String getHomePhone() {
         return homePhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public String getEmail3() {
+        return email3;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public String getAllEmails() {
+        return allEmails;
     }
 }
