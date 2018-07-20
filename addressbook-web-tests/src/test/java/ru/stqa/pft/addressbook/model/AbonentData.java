@@ -8,6 +8,17 @@ public class AbonentData {
     private String homePhone;
     private String workPhone;
 
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public AbonentData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
+    private String allPhones;
+
     public void setId(int id) {
         this.id = id;
     }
