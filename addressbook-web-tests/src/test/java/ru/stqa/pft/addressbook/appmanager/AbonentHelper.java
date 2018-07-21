@@ -32,6 +32,7 @@ public class AbonentHelper extends HelperBase {
         type(By.name("email2"), abonentData.getEmail2());
         type(By.name("email3"), abonentData.getEmail3());
         type(By.name("address"), abonentData.getAddress());
+        attach(By.name("photo"), abonentData.getPhoto());
 
     }
 
