@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
 import ru.stqa.pft.addressbook.model.Abonents;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -14,8 +16,9 @@ public class AbonentModificationsTests extends TestBase {
     public void ensurePreconditions() {
         app.goTo().home();
         if (app.abonent().all().size() == 0) {
+            File photo = new File("src/test/resources/1.bmp");
             app.abonent().create(new AbonentData()
-                    .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("45454").withHomePhone("555").withWorkPhone("2311313"), true);
+                    .withFirstname("Name1").withLastname("Sec_name1").withPhoto(photo), true);
         }
     }
 
@@ -24,7 +27,7 @@ public class AbonentModificationsTests extends TestBase {
         Abonents befor = app.abonent().all();
         AbonentData modifyAbonent = befor.iterator().next();
         AbonentData abonent = new AbonentData()
-                .withId(modifyAbonent.getId()).withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("11111").withHomePhone("11111").withWorkPhone("11111");
+                .withId(modifyAbonent.getId()).withFirstname("Name1").withLastname("Sec_name1");
         app.abonent().modify(abonent);
         assertThat(app.abonent().count(), equalTo(befor.size()));
         Abonents after = app.abonent().all();

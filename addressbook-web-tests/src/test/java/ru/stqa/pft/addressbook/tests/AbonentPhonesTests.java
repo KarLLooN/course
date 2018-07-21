@@ -17,7 +17,8 @@ public class AbonentPhonesTests extends TestBase {
         app.goTo().home();
         if (app.abonent().all().size() == 0) {
             app.abonent().create(new AbonentData()
-                    .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("45454").withHomePhone("555").withWorkPhone("2311313"), true);
+                    .withFirstname("Name1").withLastname("Sec_name1").withMobilePhone("45454").withHomePhone("555").withWorkPhone("2311313")
+                    .withEmail("eemail1").withEmail2("email2").withEmail3("email3").withAddress("asas"), true);
         }
     }
 
