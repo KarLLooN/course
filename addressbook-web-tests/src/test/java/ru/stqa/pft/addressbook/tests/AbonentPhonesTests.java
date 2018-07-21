@@ -28,16 +28,30 @@ public class AbonentPhonesTests extends TestBase {
         AbonentData abonentInfoFromEditForm = app.abonent().infoFromEditForm(abonent);
 
         assertThat(abonent.getAllPhones(), equalTo(mergePhones(abonentInfoFromEditForm)));
+        assertThat(abonent.getAllEmails(), equalTo(mergeEmails(abonentInfoFromEditForm)));
+        assertThat(abonent.getAddress(), equalTo(mergeAddress(abonentInfoFromEditForm)));
 
     }
 
+    private String mergeAddress(AbonentData abonent) {
+        return Arrays.asList(abonent.getAddress())
+                .stream().filter((s) -> !s.equals(""))
+                .map(AbonentPhonesTests::cleaned)
+                .collect(Collectors.joining("\n"));
+    }
+
+    private String mergeEmails(AbonentData abonent) {
+        return Arrays.asList(abonent.getEmail(), abonent.getEmail2(), abonent.getEmail3())
+                .stream().filter((s) -> !s.equals(""))
+                .map(AbonentPhonesTests::cleaned)
+                .collect(Collectors.joining("\n"));
+    }
 
     private String mergePhones(AbonentData abonent) {
-       return Arrays.asList(abonent.getHomePhone(),abonent.getMobilePhone(),abonent.getWorkPhone()
-               ,abonent.getEmail(),abonent.getEmail2(),abonent.getEmail3(),abonent.getAddress())
-               .stream().filter((s)-> ! s.equals(""))
-               .map(AbonentPhonesTests::cleaned)
-               .collect(Collectors.joining("\n"));
+        return Arrays.asList(abonent.getHomePhone(), abonent.getMobilePhone(), abonent.getWorkPhone())
+                .stream().filter((s) -> !s.equals(""))
+                .map(AbonentPhonesTests::cleaned)
+                .collect(Collectors.joining("\n"));
     }
 
     public static String cleaned(String phone) {
