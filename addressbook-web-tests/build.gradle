@@ -16,14 +16,27 @@ dependencies {
     compile 'org.immutables:gson:2.6.3'
 }
 
-task testGroups(type: Test){
+task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
 }
 
-task testAbonents(type: Test){
+task testAbonents(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-abonents.xml'
     }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+
 }
