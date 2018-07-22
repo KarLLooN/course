@@ -4,7 +4,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
 import ru.stqa.pft.addressbook.model.Abonents;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,9 +23,10 @@ public class AbonentCreationTest extends TestBase {
         List<Object[]> list = new ArrayList<Object[]>();
         BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/abonents.csv"));
         String line = reader.readLine();
+        File photo = new File("src/test/resources/1.bmp");
         while (line != null){
             String[] split = line.split(";");
-            list.add(new Object[]{new AbonentData().withFirstname(split[0]).withLastname(split[1])});
+            list.add(new Object[]{new AbonentData().withFirstname(split[0]).withLastname(split[1]).withPhoto(photo)});
             line = reader.readLine();
         }
         return list.iterator();
