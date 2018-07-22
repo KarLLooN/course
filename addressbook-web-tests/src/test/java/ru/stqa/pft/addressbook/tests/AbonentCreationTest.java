@@ -1,26 +1,43 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
 import ru.stqa.pft.addressbook.model.Abonents;
+import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AbonentCreationTest extends TestBase {
 
+    @DataProvider
+    public Iterator<Object[]> validAbonents() throws IOException {
+        List<Object[]> list = new ArrayList<Object[]>();
+        BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/abonents.csv"));
+        String line = reader.readLine();
+        while (line != null){
+            String[] split = line.split(";");
+            list.add(new Object[]{new AbonentData().withFirstname(split[0]).withLastname(split[1])});
+            line = reader.readLine();
+        }
+        return list.iterator();
+    }
 
-    @Test
-    public void testAbonentCreation() {
+    @Test(dataProvider = "validAbonents")
+    public void testAbonentCreation(AbonentData abonent) {
 
         app.goTo().home();
         Abonents befor = app.abonent().all();
         app.abonent().addNew();
-        File photo = new File("src/test/resources/1.bmp");
-        AbonentData abonent = new AbonentData()
-               .withFirstname("Name1").withLastname("Sec_name1").withPhoto(photo);
         app.abonent().create(abonent, true);
         assertThat(app.abonent().count(), equalTo(befor.size()+1));
         Abonents after = app.abonent().all();
