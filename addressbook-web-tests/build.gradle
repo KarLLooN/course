@@ -15,3 +15,15 @@ dependencies {
     compile 'com.thoughtworks.xstream:xstream:1.4.10'
     compile 'org.immutables:gson:2.6.3'
 }
+
+task testGroups(type: Test){
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
+
+task testAbonents(type: Test){
+    useTestNG {
+        suites 'src/test/resources/testng-abonents.xml'
+    }
+}
