@@ -22,8 +22,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AbonentCreationTest extends TestBase {
 
-    Logger logger= LoggerFactory.getLogger(AbonentCreationTest.class);
-
     @DataProvider
     public Iterator<Object[]> validAbonentsFromJson() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/abonents.json"))) {
@@ -58,7 +56,6 @@ public class AbonentCreationTest extends TestBase {
 
     @Test(dataProvider = "validAbonentsFromJson")
     public void testAbonentCreation(AbonentData abonent) {
-        logger.info("Start test testAbonentCreation");
         app.goTo().home();
         Abonents befor = app.abonent().all();
         app.abonent().addNew();
@@ -67,6 +64,5 @@ public class AbonentCreationTest extends TestBase {
         Abonents after = app.abonent().all();
         assertThat(after, equalTo
                 (befor.withAdded(abonent.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt()))));
-        logger.info("Stop test testAbonentCreation");
     }
 }
