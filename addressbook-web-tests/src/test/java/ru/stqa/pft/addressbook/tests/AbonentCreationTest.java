@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.AbonentData;
@@ -19,6 +21,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AbonentCreationTest extends TestBase {
+
+    Logger logger= LoggerFactory.getLogger(AbonentCreationTest.class);
 
     @DataProvider
     public Iterator<Object[]> validAbonentsFromJson() throws IOException {
@@ -54,7 +58,7 @@ public class AbonentCreationTest extends TestBase {
 
     @Test(dataProvider = "validAbonentsFromJson")
     public void testAbonentCreation(AbonentData abonent) {
-
+        logger.info("Start test testAbonentCreation");
         app.goTo().home();
         Abonents befor = app.abonent().all();
         app.abonent().addNew();
@@ -63,6 +67,6 @@ public class AbonentCreationTest extends TestBase {
         Abonents after = app.abonent().all();
         assertThat(after, equalTo
                 (befor.withAdded(abonent.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt()))));
-
+        logger.info("Stop test testAbonentCreation");
     }
 }
