@@ -31,7 +31,7 @@ public class AbonentDataGenerator {
         JCommander jCommander = new JCommander(generator);
         try {
             jCommander.parse(args);
-        } catch (ParameterException ex){
+        } catch (ParameterException ex) {
             jCommander.usage();
             return;
         }
@@ -44,11 +44,9 @@ public class AbonentDataGenerator {
             saveAsCsv(abonents, new File(file));
         } else if (format.equals("xml")) {
             saveAsXml(abonents, new File(file));
-        }
-        else if (format.equals("json")) {
+        } else if (format.equals("json")) {
             saveAsJson(abonents, new File(file));
-        }
-        else {
+        } else {
             System.out.println("Unrecognized format " + format);
         }
 
@@ -57,27 +55,27 @@ public class AbonentDataGenerator {
     private void saveAsJson(List<AbonentData> abonents, File file) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
         String json = gson.toJson(abonents);
-        Writer writer = new FileWriter(file);
-        writer.write(json);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(json);
+        }
     }
 
     private void saveAsXml(List<AbonentData> abonents, File file) throws IOException {
         XStream xStream = new XStream();
         xStream.processAnnotations(AbonentData.class);
         String xml = xStream.toXML(abonents);
-        Writer writer = new FileWriter(file);
-        writer.write(xml);
-        writer.close();
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }
     }
 
     private void saveAsCsv(List<AbonentData> abonents, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
-        Writer writer = new FileWriter(file);
-        for (AbonentData abonent : abonents) {
-            writer.write(String.format("%s;%s\n", abonent.getFirstname(), abonent.getLastname()));
+        try (Writer writer = new FileWriter(file)) {
+            for (AbonentData abonent : abonents) {
+                writer.write(String.format("%s;%s\n", abonent.getFirstname(), abonent.getLastname()));
+            }
         }
-        writer.close();
     }
 
     private List<AbonentData> generateAbonents(int count) {
