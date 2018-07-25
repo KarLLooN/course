@@ -2,26 +2,26 @@
   {
     "firstname": "firstname 0",
     "lastname": "lastname 0",
-    "photo": "src\\test\\resources\\1.bmp"
+    "homePhone": "src/test/resources/1.bmp"
   },
   {
     "firstname": "firstname 1",
     "lastname": "lastname 1",
-    "photo": "src\\test\\resources\\1.bmp"
+    "homePhone": "src/test/resources/1.bmp"
   },
   {
     "firstname": "firstname 2",
     "lastname": "lastname 2",
-    "photo": "src\\test\\resources\\1.bmp"
+    "homePhone": "src/test/resources/1.bmp"
   },
   {
     "firstname": "firstname 3",
     "lastname": "lastname 3",
-    "photo": "src\\test\\resources\\1.bmp"
+    "homePhone": "src/test/resources/1.bmp"
   },
   {
     "firstname": "firstname 4",
     "lastname": "lastname 4",
-    "photo": "src\\test\\resources\\1.bmp"
+    "homePhone": "src/test/resources/1.bmp"
   }
 ]

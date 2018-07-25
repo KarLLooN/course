@@ -3,41 +3,74 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 
 @XStreamAlias("abonent")
+@Entity
+@Table(name = "addressbook")
 public class AbonentData {
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
+
     @Expose
+    @Column(name = "firstname")
     private String firstname;
+
     @Expose
+    @Column(name = "lastname")
     private String lastname;
+
+    @Transient
+    private String group;
+
     @Expose
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
+
     @Expose
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
+
     @Expose
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
     @Expose
+    @Type(type = "text")
     private String email;
     @Expose
+    @Type(type = "text")
     private String email2;
     @Expose
+    @Type(type = "text")
     private String address;
     @Expose
+    @Type(type = "text")
     private String email3;
+
+    @Transient
     @Expose
     private String allPhones;
+
+    @Transient
     @Expose
     private String allEmails;
+
     @Expose
-    private File photo;
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
 
     public AbonentData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -61,6 +94,10 @@ public class AbonentData {
         return this;
     }
 
+
+    public void withGroup(String group) {
+        this.group = group;
+    }
     public AbonentData withMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
         return this;
@@ -185,6 +222,9 @@ public class AbonentData {
     }
 
     public File getPhoto() {
-        return photo;
+        return new File(photo);
+    }
+    public String getGroup() {
+        return group;
     }
 }

@@ -82,7 +82,7 @@ public class AbonentDataGenerator {
         List<AbonentData> abonents = new ArrayList<AbonentData>();
         for (int i = 0; i < count; i++) {
             abonents.add(new AbonentData().withFirstname(String.format("firstname %s", i))
-                    .withLastname(String.format("lastname %s", i)));
+                    .withLastname(String.format("lastname %s", i)).withPhoto(new File("src/test/resources/1.bmp")));
         }
         return abonents;
     }
