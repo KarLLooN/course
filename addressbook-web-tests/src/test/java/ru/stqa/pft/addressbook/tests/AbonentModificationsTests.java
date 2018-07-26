@@ -26,8 +26,9 @@ public class AbonentModificationsTests extends TestBase {
     public void testAbonentModifications() {
         Abonents befor = app.abonent().all();
         AbonentData modifyAbonent = befor.iterator().next();
+        File photo = new File("src/test/resources/1.bmp");
         AbonentData abonent = new AbonentData()
-                .withId(modifyAbonent.getId()).withFirstname("Name1").withLastname("Sec_name1");
+                .withId(modifyAbonent.getId()).withFirstname("Name1").withLastname("Sec_name1").withPhoto(photo);
         app.abonent().modify(abonent);
         assertThat(app.abonent().count(), equalTo(befor.size()));
         Abonents after = app.abonent().all();
