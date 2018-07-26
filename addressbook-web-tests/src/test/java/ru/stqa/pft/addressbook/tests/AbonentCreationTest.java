@@ -56,12 +56,12 @@ public class AbonentCreationTest extends TestBase {
 
     @Test(dataProvider = "validAbonentsFromJson")
     public void testAbonentCreation(AbonentData abonent) {
+        Abonents befor = app.db().abonents();
         app.goTo().home();
-        Abonents befor = app.abonent().all();
         app.abonent().addNew();
         app.abonent().create(abonent, true);
         assertThat(app.abonent().count(), equalTo(befor.size() + 1));
-        Abonents after = app.abonent().all();
+        Abonents after = app.db().abonents();
         assertThat(after, equalTo
                 (befor.withAdded(abonent.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt()))));
     }

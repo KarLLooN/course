@@ -14,8 +14,8 @@ public class AbonentDeletedTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().home();
-        if (app.abonent().all().size() == 0) {
+        if (app.db().abonents().size() == 0) {
+            app.goTo().home();
             File photo = new File("src/test/resources/1.bmp");
             app.abonent().create(new AbonentData()
                     .withFirstname("Name1").withLastname("Sec_name1").withPhoto(photo), true);
@@ -24,11 +24,11 @@ public class AbonentDeletedTest extends TestBase {
 
     @Test
     public void testAbonentDeleted() {
-        Abonents befor = app.abonent().all();
+        Abonents befor = app.db().abonents();
         AbonentData deletedAonent = befor.iterator().next();
         app.abonent().delete(deletedAonent);
         assertThat(app.abonent().count(), equalTo(befor.size()-1));
-        Abonents after = app.abonent().all();
+        Abonents after = app.db().abonents();
         assertThat(after, equalTo(befor.withOut(deletedAonent)));
 
     }

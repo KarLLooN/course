@@ -3,8 +3,6 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
@@ -57,11 +55,11 @@ public class GroupCreationTests extends TestBase {
 
     @Test(dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupData group) {
-        app.goTo().GroupPage();
-        Groups befor = app.group().all();
+        Groups befor = app.db().groups();
+        app.goTo().groupPage();
         app.group().create(group);
         assertThat(app.group().count(), equalTo(befor.size() + 1));
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         assertThat(after, equalTo(
                 befor.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
@@ -69,7 +67,7 @@ public class GroupCreationTests extends TestBase {
     @Test(enabled = false)
     public void testBadGroupCreation() {
 
-        app.goTo().GroupPage();
+        app.goTo().groupPage();
         Groups befor = app.group().all();
         GroupData group = new GroupData().withName("Test'");
         app.group().create(group);

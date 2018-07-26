@@ -14,8 +14,8 @@ public class AbonentModificationsTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().home();
-        if (app.abonent().all().size() == 0) {
+        if (app.db().abonents().size() == 0) {
+            app.goTo().home();
             File photo = new File("src/test/resources/1.bmp");
             app.abonent().create(new AbonentData()
                     .withFirstname("Name1").withLastname("Sec_name1").withPhoto(photo), true);
@@ -24,14 +24,15 @@ public class AbonentModificationsTests extends TestBase {
 
     @Test(enabled = true)
     public void testAbonentModifications() {
-        Abonents befor = app.abonent().all();
+        Abonents befor = app.db().abonents();
         AbonentData modifyAbonent = befor.iterator().next();
         File photo = new File("src/test/resources/1.bmp");
         AbonentData abonent = new AbonentData()
                 .withId(modifyAbonent.getId()).withFirstname("Name1").withLastname("Sec_name1").withPhoto(photo);
+        app.abonent().home();
         app.abonent().modify(abonent);
         assertThat(app.abonent().count(), equalTo(befor.size()));
-        Abonents after = app.abonent().all();
+        Abonents after = app.db().abonents();
         assertThat(after, equalTo(befor.withOut(modifyAbonent).withAdded(abonent)));
     }
 

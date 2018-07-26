@@ -12,19 +12,19 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GroupDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().GroupPage();
-        if (app.group().all().size() == 0) {
-            app.group().create(new GroupData().withName("test1"));
+        if (app.db().groups().size() == 0) {
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("Test1"));
         }
     }
 
     @Test
     public void testGroupDeletion() {
-        Groups befor = app.group().all();
+        Groups befor = app.db().groups();
         GroupData deletedGroup = befor.iterator().next();
         app.group().delete(deletedGroup);
         Assert.assertEquals(app.group().count(), befor.size()-1);
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         assertThat(after, equalTo(befor.withOut(deletedGroup)));
 
     }

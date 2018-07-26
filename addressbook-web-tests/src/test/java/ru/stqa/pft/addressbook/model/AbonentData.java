@@ -153,6 +153,14 @@ public class AbonentData {
                 '}';
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -162,7 +170,9 @@ public class AbonentData {
 
         if (id != that.id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
+        return allEmails != null ? allEmails.equals(that.allEmails) : that.allEmails == null;
     }
 
     @Override
@@ -170,15 +180,9 @@ public class AbonentData {
         int result = id;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
+        result = 31 * result + (allEmails != null ? allEmails.hashCode() : 0);
         return result;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getFirstname() {
-        return firstname;
     }
 
     public String getLastname() {
