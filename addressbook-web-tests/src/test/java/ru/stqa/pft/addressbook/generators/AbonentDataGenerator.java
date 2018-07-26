@@ -82,7 +82,11 @@ public class AbonentDataGenerator {
         List<AbonentData> abonents = new ArrayList<AbonentData>();
         for (int i = 0; i < count; i++) {
             abonents.add(new AbonentData().withFirstname(String.format("firstname %s", i))
-                    .withLastname(String.format("lastname %s", i)).withPhoto(new File("src/test/resources/1.bmp")));
+                    .withLastname(String.format("lastname %s", i)).withHomePhone(String.format("home %s", i))
+                    .withWorkPhone(String.format("work %s", i))
+                    .withMobilePhone(String.format("mobile %s", i)).withPhoto(new File("src/test/resources/1.bmp"))
+                    .withEmail(String.format("email %s", i)).withEmail2(String.format("email2 %s", i))
+                    .withEmail3(String.format("email3 %s", i)).withAddress(String.format("ada ada ada %s", i)));
         }
         return abonents;
     }

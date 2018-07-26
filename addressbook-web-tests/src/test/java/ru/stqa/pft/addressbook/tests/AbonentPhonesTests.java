@@ -37,14 +37,14 @@ public class AbonentPhonesTests extends TestBase {
     private String mergeAddress(AbonentData abonent) {
         return Arrays.asList(abonent.getAddress())
                 .stream().filter((s) -> !s.equals(""))
-                .map(AbonentPhonesTests::cleaned)
+//                .map(AbonentPhonesTests::cleaned)
                 .collect(Collectors.joining("\n"));
     }
 
     private String mergeEmails(AbonentData abonent) {
         return Arrays.asList(abonent.getEmail(), abonent.getEmail2(), abonent.getEmail3())
                 .stream().filter((s) -> !s.equals(""))
-                .map(AbonentPhonesTests::cleaned)
+//                .map(AbonentPhonesTests::cleaned)
                 .collect(Collectors.joining("\n"));
     }
 

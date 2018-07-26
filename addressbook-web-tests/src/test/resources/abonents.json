@@ -2,26 +2,37 @@
   {
     "firstname": "firstname 0",
     "lastname": "lastname 0",
+    "mobilePhone": "mobile 0",
+    "homePhone": "home 0",
+    "workPhone": "work 0",
+    "email": "email 0",
+    "email2": "email2 0",
+    "address": "ada ada ada 0",
+    "email3": "email3 0",
     "photo": "src\\test\\resources\\1.bmp"
   },
   {
     "firstname": "firstname 1",
     "lastname": "lastname 1",
+    "mobilePhone": "mobile 1",
+    "homePhone": "home 1",
+    "workPhone": "work 1",
+    "email": "email 1",
+    "email2": "email2 1",
+    "address": "ada ada ada 1",
+    "email3": "email3 1",
     "photo": "src\\test\\resources\\1.bmp"
   },
   {
     "firstname": "firstname 2",
     "lastname": "lastname 2",
-    "photo": "src\\test\\resources\\1.bmp"
-  },
-  {
-    "firstname": "firstname 3",
-    "lastname": "lastname 3",
-    "photo": "src\\test\\resources\\1.bmp"
-  },
-  {
-    "firstname": "firstname 4",
-    "lastname": "lastname 4",
+    "mobilePhone": "mobile 2",
+    "homePhone": "home 2",
+    "workPhone": "work 2",
+    "email": "email 2",
+    "email2": "email2 2",
+    "address": "ada ada ada 2",
+    "email3": "email3 2",
     "photo": "src\\test\\resources\\1.bmp"
   }
 ]
