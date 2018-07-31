@@ -43,7 +43,7 @@ public class AbonentHelper extends HelperBase {
                         .selectByVisibleText(abonentData.getGroups().iterator().next().getName());
             }
         } else {
-            Assert.assertFalse(isElementPresent(By.name("new_groups")));
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
     }
 
@@ -61,6 +61,17 @@ public class AbonentHelper extends HelperBase {
         abonentCach = null;
         closeAlert();
         home();
+    }
+
+    public void addAbonentToGroup(AbonentData abonent){
+        abonentSelectedById(abonent.getId());
+        abonentAddGroup();
+        abonentCach = null;
+        home();
+    }
+
+    private void abonentAddGroup() {
+        click(By.cssSelector("input[name='add']"));
     }
 
     public void home() {
