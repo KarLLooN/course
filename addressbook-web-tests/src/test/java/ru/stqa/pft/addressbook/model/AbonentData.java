@@ -7,6 +7,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 @XStreamAlias("abonent")
 @Entity
@@ -25,10 +27,7 @@ public class AbonentData {
     @Column(name = "lastname")
     private String lastname;
 
-    @Transient
-    private String group;
-
-    @Expose
+     @Expose
     @Column(name = "mobile")
     @Type(type = "text")
     private String mobilePhone;
@@ -69,6 +68,13 @@ public class AbonentData {
     private String photo;
 
 
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
+
     public AbonentData withPhoto(File photo) {
         this.photo = photo.getPath();
         return this;
@@ -94,10 +100,6 @@ public class AbonentData {
         return this;
     }
 
-
-    public void withGroup(String group) {
-        this.group = group;
-    }
     public AbonentData withMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
         return this;
@@ -228,7 +230,13 @@ public class AbonentData {
     public File getPhoto() {
         return new File(photo);
     }
-    public String getGroup() {
-        return group;
+
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
+    public AbonentData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
     }
 }

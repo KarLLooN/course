@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.AbonentData;
 import ru.stqa.pft.addressbook.model.Abonents;
 
@@ -34,6 +36,15 @@ public class AbonentHelper extends HelperBase {
         type(By.name("address"), abonentData.getAddress());
         attach(By.name("photo"), abonentData.getPhoto());
 
+        if(creation){
+            if(abonentData.getGroups().size() > 0){
+                Assert.assertTrue(abonentData.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group")))
+                        .selectByVisibleText(abonentData.getGroups().iterator().next().getName());
+            }
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_groups")));
+        }
     }
 
     public void abonentSelectedById(int id) {
