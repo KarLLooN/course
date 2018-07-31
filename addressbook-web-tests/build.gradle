@@ -42,4 +42,8 @@ task testAbonents(type: Test) {
         systemProperty 'target', "${target}"
     }
 
+    if (project.hasProperty('verifyUi')) {
+        systemProperty 'verifyUi', "${verifyUi}"
+    }
+
 }
