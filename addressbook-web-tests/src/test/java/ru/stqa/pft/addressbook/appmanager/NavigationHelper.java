@@ -33,4 +33,9 @@ public class NavigationHelper extends HelperBase {
     public void closeAlert() {
         wd.switchTo().alert().accept();
     }
+
+    public void changeGroup(String groupName) {
+        click(By.xpath("//select[@name='group']"));
+        click(By.xpath("//*[text()='"+groupName+"']"));
+    }
 }

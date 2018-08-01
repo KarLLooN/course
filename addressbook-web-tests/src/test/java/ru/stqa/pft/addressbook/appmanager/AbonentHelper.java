@@ -55,6 +55,10 @@ public class AbonentHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
+    public void goToGroup(){
+        click(By.xpath("//*[contains(text(),'Go to')]//a"));
+    }
+
     public void delete(AbonentData abonent) {
         abonentSelectedById(abonent.getId());
         abonentDelete();
@@ -67,7 +71,6 @@ public class AbonentHelper extends HelperBase {
         abonentSelectedById(abonent.getId());
         abonentAddGroup();
         abonentCach = null;
-        home();
     }
 
     private void abonentAddGroup() {

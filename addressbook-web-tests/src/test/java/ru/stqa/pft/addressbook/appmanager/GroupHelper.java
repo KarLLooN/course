@@ -99,4 +99,7 @@ public class GroupHelper extends HelperBase {
     }
 
 
+    public void removeAbonentFromGroup() {
+        click(By.xpath("//*[@name='remove']"));
+    }
 }
