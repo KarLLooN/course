@@ -57,4 +57,14 @@ public class TestBase {
                     .collect(Collectors.toSet())));
         }
     }
+
+    public void verifyAbonentListInUi (){
+        if (Boolean.getBoolean("verifyAbonentUi")) {
+            Abonents dbAbonents = app.db().abonents();
+            Abonents uiAbonents = app.abonent().all();
+            assertThat(uiAbonents, equalTo(dbAbonents.stream()
+                    .map((a) -> new AbonentData().withId(a.getId()).withFirstname(a.getFirstname()).withLastname(a.getLastname()))
+                    .collect(Collectors.toSet())));
+        }
+    }
 }

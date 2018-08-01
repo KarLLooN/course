@@ -65,5 +65,6 @@ public class AbonentCreationTest extends TestBase {
         Abonents after = app.db().abonents();
         assertThat(after, equalTo
                 (befor.withAdded(abonent.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt()))));
+        verifyGroupListInUi();
     }
 }

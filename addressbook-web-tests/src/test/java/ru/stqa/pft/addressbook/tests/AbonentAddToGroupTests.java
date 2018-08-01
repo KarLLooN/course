@@ -34,5 +34,6 @@ public class AbonentAddToGroupTests extends TestBase{
         Abonents after = app.db().abonents();
         assertThat(after, equalTo
                 (befor.withAdded(newAbonent.withId(after.stream().mapToInt((a) -> a.getId()).max().getAsInt()))));
+        verifyGroupListInUi();
     }
 }

@@ -31,6 +31,7 @@ public class AbonentPhonesTests extends TestBase {
         assertThat(abonent.getAllPhones(), equalTo(mergePhones(abonentInfoFromEditForm)));
         assertThat(abonent.getAllEmails(), equalTo(mergeEmails(abonentInfoFromEditForm)));
         assertThat(abonent.getAddress(), equalTo(mergeAddress(abonentInfoFromEditForm)));
+        verifyGroupListInUi();
     }
 
     private String mergeAddress(AbonentData abonent) {

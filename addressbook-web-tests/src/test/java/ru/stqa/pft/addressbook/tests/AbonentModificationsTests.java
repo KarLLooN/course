@@ -34,6 +34,7 @@ public class AbonentModificationsTests extends TestBase {
         assertThat(app.abonent().count(), equalTo(befor.size()));
         Abonents after = app.db().abonents();
         assertThat(after, equalTo(befor.withOut(modifyAbonent).withAdded(abonent)));
+        verifyGroupListInUi();
     }
 
 

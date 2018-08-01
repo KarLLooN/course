@@ -30,6 +30,7 @@ public class AbonentDeletedTest extends TestBase {
         assertThat(app.abonent().count(), equalTo(befor.size()-1));
         Abonents after = app.db().abonents();
         assertThat(after, equalTo(befor.withOut(deletedAonent)));
+        verifyGroupListInUi();
     }
 
 
