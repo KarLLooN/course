@@ -30,7 +30,7 @@ public class AbonentDeleteOfGroupTests extends TestBase {
         newAbonent = groupData.getAbonents().iterator().next();
     }
 
-    @Test
+    @Test(enabled = false)
     public void testAbonentDeleteOfGroup(){
         app.goTo().changeGroup("Test1");
         app.abonent().abonentSelectedById(newAbonent.getId());
