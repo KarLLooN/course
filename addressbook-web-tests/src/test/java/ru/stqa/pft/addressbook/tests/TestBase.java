@@ -58,7 +58,7 @@ public class TestBase {
         }
     }
 
-    public void verifyAbonentListInUi (){
+    public void verifyAbonentListInUi() {
         if (Boolean.getBoolean("verifyAbonentUi")) {
             Abonents dbAbonents = app.db().abonents();
             Abonents uiAbonents = app.abonent().all();
@@ -66,5 +66,27 @@ public class TestBase {
                     .map((a) -> new AbonentData().withId(a.getId()).withFirstname(a.getFirstname()).withLastname(a.getLastname()))
                     .collect(Collectors.toSet())));
         }
+    }
+
+    protected AbonentData getAboentWithoutGroup() {
+        Abonents abonents = app.db().abonents();
+        Groups groups = app.db().groups();
+        return abonents.stream().filter(abonentData -> !abonentData.getGroups().containsAll(groups)).findFirst()
+                .orElse(null);//возвращаем список абонентов без группы
+    }
+
+    protected AbonentData getAbonentById(int id) {
+        Abonents abonents = app.db().abonents();
+        return abonents.stream().filter(abonentData -> abonentData.getId() == id).findFirst().orElse(null);
+    }
+
+    protected GroupData getGroupWithoutInnerAbonent(AbonentData abonent) {
+        Groups groups = app.db().groups();
+        for (GroupData group : groups) {
+            if (!abonent.getGroups().contains(group)) {
+                return group;
+            }
+        }
+        throw new AssertionError("Не найдена группа без данного абонента " + abonent.toString());
     }
 }

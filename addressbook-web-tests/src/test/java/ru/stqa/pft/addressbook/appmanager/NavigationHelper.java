@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class NavigationHelper extends HelperBase {
 
@@ -20,7 +21,6 @@ public class NavigationHelper extends HelperBase {
     }
 
 
-
     public void home() {
         if (isElementPresent(By.id("maintable"))) {
             return;
@@ -29,13 +29,17 @@ public class NavigationHelper extends HelperBase {
     }
 
 
-
     public void closeAlert() {
         wd.switchTo().alert().accept();
     }
 
-    public void changeGroup(String groupName) {
-        click(By.xpath("//select[@name='group']"));
-        click(By.xpath("//*[text()='"+groupName+"']"));
+    public void changeGroupForAdd(String groupName) {
+        WebElement element = wd.findElement(By.xpath("//select[@name='to_group']"));
+        element.findElement(By.xpath(".//*[text()='" + groupName + "']")).click();
+    }
+
+    public void changeGroupForView(String groupName) {
+        WebElement element = wd.findElement(By.xpath("//select[@name='group']"));
+        element.findElement(By.xpath(".//*[text()='" + groupName + "']")).click();
     }
 }
