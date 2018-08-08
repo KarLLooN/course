@@ -12,7 +12,7 @@ public class ChangePasswordHelper extends HelperBase{
         super(app);
     }
 
-    public void loginByAdmin(String username, String password) throws IOException {
+    public void login(String username, String password) throws IOException {
         type(By.xpath("//input[@name='username']"), username);
         click(By.xpath("//input[@value='Войти']"));
         type(By.xpath("//input[@name='password']"), password);
@@ -30,5 +30,15 @@ public class ChangePasswordHelper extends HelperBase{
 
     public void refreshPassword() {
         wd.findElement(By.xpath("//form[@id='manage-user-reset-form']/fieldset/span/input")).click();
+    }
+
+    public String getSelectedUserEmail(){
+        String userEmail = wd.findElement(By.xpath("//tr[3]//input[@name='email']")).getAttribute("value");
+        return userEmail;
+    }
+
+    public String getSelectedUserName(){
+        String userName = wd.findElement(By.xpath("//tr[1]//input[@name='username']")).getAttribute("value");
+        return userName;
     }
 }
