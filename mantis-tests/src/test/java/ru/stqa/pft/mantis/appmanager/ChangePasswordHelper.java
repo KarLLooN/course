@@ -10,11 +10,10 @@ public class ChangePasswordHelper extends HelperBase{
         super(app);
     }
 
-    public void start(String username, String email) throws IOException {
-        app.newSession().login("administrator","root");
-        wd.get(app.getProperty("web.baseUrl") + "/manage_user_page.php");
-//        type(By.name("username"), username);
-//        type(By.name("email"),email);
-//        click(By.cssSelector("input[value='Зарегистрироваться']"));
+    public void loginByAdmin(String username, String password) throws IOException {
+        type(By.xpath("//input[@name='username']"), username);
+        click(By.xpath("//input[@value='Войти']"));
+        type(By.xpath("//input[@name='password']"), password);
+        click(By.xpath("//input[@value='Войти']"));
     }
 }

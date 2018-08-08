@@ -15,6 +15,7 @@ public class ChangePassworTest extends TestBase {
 
     @Test
     public void testChangePassword() throws IOException {
+        app.changePassword().loginByAdmin("administrator","root");
         app.changePassword();
 
     }
