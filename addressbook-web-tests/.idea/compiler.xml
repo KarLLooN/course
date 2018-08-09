@@ -6,6 +6,8 @@
       <module name="addressbook-web-tests_test" target="1.8" />
       <module name="mantis-tests_main" target="1.8" />
       <module name="mantis-tests_test" target="1.8" />
+      <module name="rest-semple_main" target="1.8" />
+      <module name="rest-semple_test" target="1.8" />
       <module name="soap-semple_main" target="1.8" />
       <module name="soap-semple_test" target="1.8" />
     </bytecodeTargetLevel>
