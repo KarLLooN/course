@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="suites" verbose="1" >
+    <test name="Abonents">
+        <classes>
+            <class name="ru.stqa.pft.addressbook.tests.AbonentCreationTest" />
+            <class name="ru.stqa.pft.addressbook.tests.AbonentModificationsTests" />
+            <class name="ru.stqa.pft.addressbook.tests.AbonentPhonesTests" />
+            <class name="ru.stqa.pft.addressbook.tests.AbonentDeletedTest" />
+        </classes>
+    </test>
+</suite>

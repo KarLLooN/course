@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="addressbook-web-tests_main" target="1.8" />
+      <module name="addressbook-web-tests_test" target="1.8" />
+      <module name="github-semple_main" target="1.8" />
+      <module name="github-semple_test" target="1.8" />
+      <module name="mantis-tests_main" target="1.8" />
+      <module name="mantis-tests_test" target="1.8" />
+      <module name="rest-semple_main" target="1.8" />
+      <module name="rest-semple_test" target="1.8" />
+      <module name="sandbox_main" target="1.8" />
+      <module name="sandbox_test" target="1.8" />
+      <module name="soap-semple_main" target="1.8" />
+      <module name="soap-semple_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
