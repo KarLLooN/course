@@ -25,10 +25,7 @@ sandbox/.idea/workspace.xml
 sandbox/.idea/workspace.xml
 sandbox/.idea/workspace.xml
 .idea/libraries/Gradle__com_beust_jcommander_1_72.xml
-*.xml
-*.xml
 .idea/libraries/Gradle__com_google_guava_guava_23_6_jre.xml
-*.xml
 *.class
 *.iml
 *.class
