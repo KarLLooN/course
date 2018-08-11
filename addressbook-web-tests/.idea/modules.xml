@@ -6,19 +6,34 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" group="addressbook-web-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" group="addressbook-web-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-semple.iml" filepath="$PROJECT_DIR$/.idea/modules/github-semple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-semple.iml" filepath="$PROJECT_DIR$/.idea/modules/github-semple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-semple_main.iml" filepath="$PROJECT_DIR$/.idea/modules/github-semple_main.iml" group="github-semple" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-semple_main.iml" filepath="$PROJECT_DIR$/.idea/modules/github-semple_main.iml" group="github-semple" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-semple_test.iml" filepath="$PROJECT_DIR$/.idea/modules/github-semple_test.iml" group="github-semple" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-semple_test.iml" filepath="$PROJECT_DIR$/.idea/modules/github-semple_test.iml" group="github-semple" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" group="mantis-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" group="mantis-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" group="mantis-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" group="mantis-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-semple.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-semple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-semple.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-semple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-semple_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-semple_main.iml" group="rest-semple" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-semple_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-semple_main.iml" group="rest-semple" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-semple_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-semple_test.iml" group="rest-semple" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-semple_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-semple_test.iml" group="rest-semple" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_main.iml" group="sandbox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_main.iml" group="sandbox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_test.iml" group="sandbox" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_test.iml" group="sandbox" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-semple.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-semple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-semple.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-semple.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-semple_main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-semple_main.iml" group="soap-semple" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-semple_main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-semple_main.iml" group="soap-semple" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-semple_test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-semple_test.iml" group="soap-semple" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-semple_test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-semple_test.iml" group="soap-semple" />
     </modules>
   </component>
