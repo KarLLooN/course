@@ -22,7 +22,7 @@ public class AbonentPhonesTests extends TestBase {
         }
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void testAbonentPhones() {
         app.goTo().home();
         AbonentData abonent = app.abonent().all().iterator().next();
