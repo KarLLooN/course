@@ -4,8 +4,8 @@
 
     <test name="Abonents">
         <classes>
-            <class name="ru.stqa.pft.addressbook.tests.AbonentCreationTest" />
-            <class name="ru.stqa.pft.addressbook.tests.AbonentModificationsTests" />
+            <!--<class name="ru.stqa.pft.addressbook.tests.AbonentCreationTest" />-->
+            <!--<class name="ru.stqa.pft.addressbook.tests.AbonentModificationsTests" />-->
             <class name="ru.stqa.pft.addressbook.tests.AbonentDeletedTest" />
         </classes>
     </test>
